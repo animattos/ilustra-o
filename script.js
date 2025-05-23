@@ -10,11 +10,11 @@ const baseIllustrations = [
 ];
 
 const additionalModalImagesForFirstIllustration = [
-    { src: '/26b36dd1b533b5aef148e20cd1abaaec.jpg', description: 'Menino com camisa de quebra-cabeças.' },
-    { src: '/6a824706-83e2-4cc2-8394-57a3a9a78852.webp', description: 'Menino correndo de dinossauro.' },
-    { src: '/2c2e0e4b-648d-4207-8683-67c75ec61b65.webp', description: 'Menino de desenho animado olhando o celular.' },
-    { src: '/8a2c647d-1e81-4cfd-92be-95f12c56ae6e.webp', description: 'Menino usando smartphone.' },
-    { src: '/91f83834-3e78-4c06-845c-0e990e430817.webp', description: 'Pescador em estilo xilogravura.' },
+    { src: './01A.png', description: 'A professora repreende o menino Juca.' },
+    { src: './01B.png', description: 'O menino Juca estava voando entre as nuvens' },
+    { src: './01C.png', description: 'O cão e o gato assistiam o pôr do sol.' },
+    { src: './01D.png', description: 'Juca ensinava sobre a internet para a lagartinha.' },
+    { src: './01E.png', description: 'O príncipe veio salvar a princesa das garras do dragão' },
 ];
 
 const gallery = document.getElementById('gallery');
