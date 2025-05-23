@@ -23,6 +23,7 @@ const additionalModalImagesForSecondIllustration = [
   { src: './02C.png', description: 'O fazendeiro passeava com o seu burrinho.' },
   { src: './02D.png', description: 'O gatinho sapeca fugia do cão feroz.' },
   { src: './02E.png', description: 'O menino descia muito rápido de bicicleta.' }
+  { src: './03F.png', description: 'O pai do menino é um super herói?' }
 ];
 
 const additionalModalImagesForThirdIllustration = [
