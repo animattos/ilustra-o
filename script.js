@@ -1,5 +1,5 @@
 const baseIllustrations = [
-    { src: './01.png', description: 'Esboço a lápis: linhas feitas à mão simulando lápis grafite, com traços aparentes, espontâneos e levemente irregulares, dando um ar artesanal e expressivo, com várias linhas de construção visíveis, reforçando volumes e gestos dos personagens, sem esconder o processo criativo. ', price: 45 },
+    { src: './01.png', description: 'Esboço a lápis: linhas feitas à mão simulando <br> lápis grafite, com traços aparentes, espontâneos e levemente irregulares, dando um ar artesanal e expressivo, com várias linhas de construção visíveis, reforçando volumes e gestos dos personagens, sem esconder o processo criativo. ', price: 45 },
     { src: './02.png', description: 'Ilustração estilizada de um menino correndo de um ônibus escolar amarelo.', price: 120 },
     { src: './03.png', description: 'Ilustração colorida de um menino brincando com um cachorrinho em uma sala de estar.', price: 80 },
     { src: './04.png', description: 'Ilustração de um super-herói preocupado em uma sala de aula com crianças entediadas.', price: 90 },
