@@ -31,6 +31,7 @@ const additionalModalImagesForThirdIllustration = [
   { src: './03C.png', description: 'Ele abraçou sua mãezinha feliz.' },
   { src: './03D.png', description: 'Isso que chamo de manobra radical.' },
   { src: './03E.png', description: 'Ele não tinha dinheiro para comprar picolé.' }
+  { src: './03F.png', description: 'O pai do menino é um super herói?' }
 ];
 
 const gallery = document.getElementById('gallery');
