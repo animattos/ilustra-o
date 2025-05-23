@@ -18,11 +18,11 @@ const additionalModalImagesForFirstIllustration = [
 ];
 
 const additionalModalImagesForSecondIllustration = [
-  { src: './02A.png', description: 'O menino corria feliz ao avistar o ônibus escolar.' },
-  { src: './02B.png', description: 'O ônibus escolar amarelo se aproximava devagar.' },
-  { src: './02C.png', description: 'O menino parou para amarrar o cadarço.' },
-  { src: './02D.png', description: 'O motorista sorriu e acenou para o menino.' },
-  { src: './02E.png', description: 'O menino entrou no ônibus com entusiasmo.' }
+  { src: './02A.png', description: 'O menino sonhava ser um astronauta.' },
+  { src: './02B.png', description: 'Diversão e brincadeira em família.' },
+  { src: './02C.png', description: 'O fazendeiro passeava com o seu burrinho.' },
+  { src: './02D.png', description: 'O gatinho sapeca fugia do cão feroz.' },
+  { src: './02E.png', description: 'O menino descia muito rápido de bicicleta.' }
 ];
 
 const gallery = document.getElementById('gallery');
