@@ -414,15 +414,7 @@ function openModal(baseIndex) {
     currentModalImages.push(...additionalModalImagesForThirdIllustration);
 } else if (baseIndex === 3) {
     currentModalImages.push(...additionalModalImagesForFourthIllustration);
-} else if (baseIndex === 4) {
-    currentModalImages.push(...additionalModalImagesForFifthIllustration);
-} else if (baseIndex === 5) {
-    currentModalImages.push(...additionalModalImagesForSixthIllustration);
-} else if (baseIndex === 6) {
-    currentModalImages.push(...additionalModalImagesForSeventhIllustration);
-} else if (baseIndex === 7) {
-    currentModalImages.push(...additionalModalImagesForEighthIllustration);
-}
+} 
 
     currentModalIndex = 0; 
     updateModalContent(0);
