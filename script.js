@@ -35,6 +35,48 @@ const additionalModalImagesForThirdIllustration = [
   { src: './03F.png', description: 'O seu pai é um super herói?' },
 ];
 
+
+const additionalModalImagesForFourthIllustration = [
+  { src: './04A.png', description: 'O menino brincava com o seu cãozinho.' },
+  { src: './04B.png', description: 'O menino correu daquele touro feroz.' },
+  { src: './04C.png', description: 'Ele abraçou sua mãezinha feliz.' },
+  { src: './04D.png', description: 'Isso que chamo de manobra radical.' },
+  { src: './04E.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
+  
+];
+const additionalModalImagesForFifthIllustration = [
+  { src: './05A.png', description: 'O menino brincava com o seu cãozinho.' },
+  { src: './05B.png', description: 'O menino correu daquele touro feroz.' },
+  { src: './05C.png', description: 'Ele abraçou sua mãezinha feliz.' },
+  { src: './05D.png', description: 'Isso que chamo de manobra radical.' },
+  { src: './05E.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
+  
+];
+const additionalModalImagesForSixthIllustration = [
+  { src: './06A.png', description: 'O menino brincava com o seu cãozinho.' },
+  { src: './06B.png', description: 'O menino correu daquele touro feroz.' },
+  { src: './06C.png', description: 'Ele abraçou sua mãezinha feliz.' },
+  { src: './06D.png', description: 'Isso que chamo de manobra radical.' },
+  { src: './06E.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
+  
+];
+const additionalModalImagesForSeventhIllustration = [
+  { src: './07A.png', description: 'O menino brincava com o seu cãozinho.' },
+  { src: './07B.png', description: 'O menino correu daquele touro feroz.' },
+  { src: './07C.png', description: 'Ele abraçou sua mãezinha feliz.' },
+  { src: './07D.png', description: 'Isso que chamo de manobra radical.' },
+  { src: './07E.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
+  
+];
+const additionalModalImagesForEighthIllustration = [
+  { src: './08A.png', description: 'O menino brincava com o seu cãozinho.' },
+  { src: './08B.png', description: 'O menino correu daquele touro feroz.' },
+  { src: './08C.png', description: 'Ele abraçou sua mãezinha feliz.' },
+  { src: './08D.png', description: 'Isso que chamo de manobra radical.' },
+  { src: './08E.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
+  
+];
+
 const gallery = document.getElementById('gallery');
 const modal = document.getElementById('modal');
 const modalImage = document.getElementById('modal-image');
