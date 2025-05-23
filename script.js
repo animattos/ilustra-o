@@ -1,5 +1,5 @@
 const baseIllustrations = [
-    { src: './01.png', description: 'Ilustração de um menino voando entre nuvens, alegre e colorido.', price: 60 },
+    { src: '01.png', description: 'Ilustração de um menino voando entre nuvens, alegre e colorido.', price: 60 },
     { src: './02.png', description: 'Ilustração estilizada de um menino correndo de um ônibus escolar amarelo.', price: 120 },
     { src: './03.png', description: 'Ilustração colorida de um menino brincando com um cachorrinho em uma sala de estar.', price: 80 },
     { src: './04.png', description: 'Ilustração de um super-herói preocupado em uma sala de aula com crianças entediadas.', price: 90 },
