@@ -22,8 +22,8 @@ const additionalModalImagesForSecondIllustration = [
   { src: './02B.png', description: 'Diversão e brincadeira em família.' },
   { src: './02C.png', description: 'O fazendeiro passeava com o seu burrinho.' },
   { src: './02D.png', description: 'O gatinho sapeca fugia do cão feroz.' },
-  { src: './02E.png', description: 'O menino descia muito rápido de bicicleta.' }
-  { src: './03F.png', description: 'O pai do menino é um super herói?' }
+  { src: './02E.png', description: 'O menino descia muito rápido de bicicleta.' },
+  { src: './03F.png', description: 'O pai do menino é um super herói?' },
 ];
 
 const additionalModalImagesForThirdIllustration = [
@@ -31,7 +31,8 @@ const additionalModalImagesForThirdIllustration = [
   { src: './03B.png', description: 'O menino correu daquele touro feroz.' },
   { src: './03C.png', description: 'Ele abraçou sua mãezinha feliz.' },
   { src: './03D.png', description: 'Isso que chamo de manobra radical.' },
-  { src: './03E.png', description: 'Ele não tinha dinheiro para comprar picolé.' }
+  { src: './03E.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
+  { src: './03F.png', description: 'O seu pai é um super herói?' },
 ];
 
 const gallery = document.getElementById('gallery');
