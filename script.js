@@ -1,7 +1,7 @@
 const baseIllustrations = [
     { src: './01.png', description: 'Esboço a lápis com linhas feitas à mão simulando grafite.', price: 55 },
     { src: './02.png', description: ' Ilustração com contornos limpos, expressivos e bem definidos.', price: 65 },
-    { src: './03.png', description: 'Ilustração colorida de um menino brincando com um cachorrinho em uma sala de estar.', price: 80 },
+    { src: './03.png', description: 'Ilustração digital coloridacom textura manual imita pinceladas tradicionais.', price: 85 },
     { src: './04.png', description: 'Ilustração de um super-herói preocupado em uma sala de aula com crianças entediadas.', price: 90 },
     { src: './05.png', description: 'Ilustração de um menino surpreso ou assustado andando de bicicleta.', price: 70 },
     { src: './06.png', description: 'Ilustração estilizada de um menino correndo com determinação.', price: 150 },
@@ -26,11 +26,11 @@ const additionalModalImagesForSecondIllustration = [
 ];
 
 const additionalModalImagesForThirdIllustration = [
-  { src: './03A.png', description: 'O menino sonhava ser um astronauta.' },
-  { src: './03B.png', description: 'Diversão e brincadeira em família.' },
-  { src: './03C.png', description: 'O fazendeiro passeava com o seu burrinho.' },
-  { src: './03D.png', description: 'O gatinho sapeca fugia do cão feroz.' },
-  { src: './03E.png', description: 'O menino descia muito rápido de bicicleta.' }
+  { src: './03A.png', description: 'O menino brincava com o seu cãozinho.' },
+  { src: './03B.png', description: 'O menino correu daquele touro feroz.' },
+  { src: './03C.png', description: 'Ele abraçou sua mãezinha feliz.' },
+  { src: './03D.png', description: 'Isso que chamo de manobra radical.' },
+  { src: './03E.png', description: 'Ele não tinha dinheiro para comprar picolé.' }
 ];
 
 const gallery = document.getElementById('gallery');
