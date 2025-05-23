@@ -1,12 +1,12 @@
 const baseIllustrations = [
-    { src: './01.png', description: 'Ilustração de um menino voando entre nuvens, alegre e colorido.', price: 60 },
-    { src: './02.png', description: 'Ilustração estilizada de um menino correndo de um ônibus escolar amarelo.', price: 120 },
+    { src: './08.png', description: 'Ilustração de um menino voando entre nuvens, alegre e colorido.', price: 60 },
+    { src: './07.png', description: 'Ilustração estilizada de um menino correndo de um ônibus escolar amarelo.', price: 120 },
     { src: './03.png', description: 'Ilustração colorida de um menino brincando com um cachorrinho em uma sala de estar.', price: 80 },
     { src: './04.png', description: 'Ilustração de um super-herói preocupado em uma sala de aula com crianças entediadas.', price: 90 },
     { src: './05.png', description: 'Ilustração de um menino surpreso ou assustado andando de bicicleta.', price: 70 },
     { src: './06.png', description: 'Ilustração estilizada de um menino correndo com determinação.', price: 150 },
-    { src: './07.png', description: 'Ilustração lúdica de um menino usando um smartphone com um dragão amigável por perto.', price: 110 },
-    { src: './08.png', description: 'Renderização 3D estilizada de Deby Musa sorrindo.', price: 180 },
+    { src: './02.png', description: 'Ilustração lúdica de um menino usando um smartphone com um dragão amigável por perto.', price: 110 },
+    { src: './01.png', description: 'Renderização 3D estilizada de Deby Musa sorrindo.', price: 180 },
 ];
 
 const additionalModalImagesForFirstIllustration = [
