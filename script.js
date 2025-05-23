@@ -388,8 +388,10 @@ function openModal(baseIndex) {
 
     // Add specific additional images if needed (currently only for index 0)
     if (baseIndex === 0) {
-        currentModalImages.push(...additionalModalImagesForFirstIllustration);
-    }
+    currentModalImages.push(...additionalModalImagesForFirstIllustration);
+} else if (baseIndex === 1) {
+    currentModalImages.push(...additionalModalImagesForSecondIllustration);
+}
 
     currentModalIndex = 0; 
     updateModalContent(0);
