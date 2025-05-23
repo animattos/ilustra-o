@@ -25,6 +25,14 @@ const additionalModalImagesForSecondIllustration = [
   { src: './02E.png', description: 'O menino descia muito rápido de bicicleta.' }
 ];
 
+const additionalModalImagesForThirdIllustration = [
+  { src: './03A.png', description: 'O menino sonhava ser um astronauta.' },
+  { src: './03B.png', description: 'Diversão e brincadeira em família.' },
+  { src: './03C.png', description: 'O fazendeiro passeava com o seu burrinho.' },
+  { src: './03D.png', description: 'O gatinho sapeca fugia do cão feroz.' },
+  { src: './03E.png', description: 'O menino descia muito rápido de bicicleta.' }
+];
+
 const gallery = document.getElementById('gallery');
 const modal = document.getElementById('modal');
 const modalImage = document.getElementById('modal-image');
@@ -391,6 +399,18 @@ function openModal(baseIndex) {
     currentModalImages.push(...additionalModalImagesForFirstIllustration);
 } else if (baseIndex === 1) {
     currentModalImages.push(...additionalModalImagesForSecondIllustration);
+} else if (baseIndex === 2) {
+    currentModalImages.push(...additionalModalImagesForThirdIllustration);
+} else if (baseIndex === 3) {
+    currentModalImages.push(...additionalModalImagesForFourthIllustration);
+} else if (baseIndex === 4) {
+    currentModalImages.push(...additionalModalImagesForFifthIllustration);
+} else if (baseIndex === 5) {
+    currentModalImages.push(...additionalModalImagesForSixthIllustration);
+} else if (baseIndex === 6) {
+    currentModalImages.push(...additionalModalImagesForSeventhIllustration);
+} else if (baseIndex === 7) {
+    currentModalImages.push(...additionalModalImagesForEighthIllustration);
 }
 
     currentModalIndex = 0; 
