@@ -35,7 +35,7 @@ const additionalModalImagesForThirdIllustration = [
   { src: './03F.png', description: 'O seu pai é um super herói?' },
 ];
 
-const additionalModalImagesForThirdIllustration = [
+const additionalModalImagesForFourthIllustration = [
   { src: './04A.png', description: 'O menino brincava com o seu cãozinho.' },
   { src: './04B.png', description: 'O menino correu daquele touro feroz.' },
   { src: './04C.png', description: 'Ele abraçou sua mãezinha feliz.' },
