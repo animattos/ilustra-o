@@ -17,6 +17,14 @@ const additionalModalImagesForFirstIllustration = [
     { src: './01E.png', description: 'O príncipe veio salvar a princesa das garras do dragão' },
 ];
 
+const additionalModalImagesForSecondIllustration = [
+  { src: './02A.png', description: 'O menino corria feliz ao avistar o ônibus escolar.' },
+  { src: './02B.png', description: 'O ônibus escolar amarelo se aproximava devagar.' },
+  { src: './02C.png', description: 'O menino parou para amarrar o cadarço.' },
+  { src: './02D.png', description: 'O motorista sorriu e acenou para o menino.' },
+  { src: './02E.png', description: 'O menino entrou no ônibus com entusiasmo.' }
+];
+
 const gallery = document.getElementById('gallery');
 const modal = document.getElementById('modal');
 const modalImage = document.getElementById('modal-image');
