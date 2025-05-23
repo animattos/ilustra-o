@@ -1,13 +1,13 @@
 const baseIllustrations = [
-    { src: './ChatGPT Image 22 de mai. de 2025, 15_46_33.png', description: 'Ilustração de um menino voando entre nuvens, alegre e colorido.', price: 60 },
-    { src: './ChatGPT Image 22 de mai. de 2025, 16_05_39.png', description: 'Ilustração estilizada de um menino correndo de um ônibus escolar amarelo.', price: 120 },
-    { src: './ChatGPT Image 22 de mai. de 2025, 15_45_17.png', description: 'Ilustração colorida de um menino brincando com um cachorrinho em uma sala de estar.', price: 80 },
-    { src: './ChatGPT Image 22 de mai. de 2025, 16_42_13.png', description: 'Ilustração de um super-herói preocupado em uma sala de aula com crianças entediadas.', price: 90 },
-    { src: './ChatGPT Image 22 de mai. de 2025, 15_57_18.png', description: 'Ilustração de um menino surpreso ou assustado andando de bicicleta.', price: 70 },
-    { src: './bd6cb4c0-63b3-4d55-b337-602533002b37.webp', description: 'Ilustração estilizada de um menino correndo com determinação.', price: 150 },
+    { src: './01.png', description: 'Ilustração de um menino voando entre nuvens, alegre e colorido.', price: 60 },
+    { src: './02.png', description: 'Ilustração estilizada de um menino correndo de um ônibus escolar amarelo.', price: 120 },
+    { src: './03.png', description: 'Ilustração colorida de um menino brincando com um cachorrinho em uma sala de estar.', price: 80 },
+    { src: './04.png', description: 'Ilustração de um super-herói preocupado em uma sala de aula com crianças entediadas.', price: 90 },
+    { src: './05.png', description: 'Ilustração de um menino surpreso ou assustado andando de bicicleta.', price: 70 },
+    { src: './06.png', description: 'Ilustração estilizada de um menino correndo com determinação.', price: 150 },
     // Corrected filename for Illustration 7
-    { src: '/ChatGPT Image 22 de mai. de 2025, 16_44_36.png', description: 'Ilustração lúdica de um menino usando um smartphone com um dragão amigável por perto.', price: 110 },
-    { src: '/deby.jpg', description: 'Renderização 3D estilizada de Deby Musa sorrindo.', price: 180 },
+    { src: '/07.png', description: 'Ilustração lúdica de um menino usando um smartphone com um dragão amigável por perto.', price: 110 },
+    { src: '/08.jpg', description: 'Renderização 3D estilizada de Deby Musa sorrindo.', price: 180 },
 ];
 
 const additionalModalImagesForFirstIllustration = [
