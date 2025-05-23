@@ -1,0 +1,553 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    padding: 0 10px; 
+    box-sizing: border-box;
+    width: 100%;
+}
+
+h1 {
+    color: #333;
+    margin: 0; 
+    font-size: 1.8em;
+    flex-grow: 1; 
+    text-align: left; 
+}
+
+.how-it-works-button {
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; 
+}
+
+.how-it-works-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+@media (min-width: 650px) {
+    #gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.gallery-item {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-color: #007bff;
+}
+
+.gallery-item.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    filter: grayscale(50%);
+}
+
+.gallery-item.disabled .image-container {
+     cursor: default;
+}
+
+.image-container {
+    position: relative;
+    padding-top: 100%;
+    overflow: hidden;
+    width: 100%;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.image-container img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    margin-top: auto;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+.illustration-price {
+    padding: 2px 0;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.illustration-checkbox {
+    padding: 2px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.illustration-checkbox input[type="checkbox"] {
+    margin: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.illustration-checkbox label {
+    font-size: 0.8em;
+    color: #555;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+    padding-top: 60px;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 95vh;
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.modal-nav-button {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: #333;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    z-index: 1001;
+}
+
+.modal-nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.modal-content img {
+    display: block;
+    max-width: 80%;
+    max-height: 70vh;
+    height: auto;
+    flex-grow: 1;
+    object-fit: contain;
+}
+
+.modal-content p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 0;
+    max-width: 100%;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #aaa;
+    font-size: 35px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active .modal-content {
+     display: flex;
+}
+
+#controls {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 20px;
+    text-align: left;
+}
+
+#controls label {
+    font-weight: bold;
+    color: #555;
+}
+
+#controls .control-group {
+    width: 100%;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+#controls .control-group:last-child {
+    border-bottom: none;
+}
+
+#controls input[type="range"] {
+    width: calc(100% - 60px);
+    max-width: 300px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+#controls #quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#controls #quantity-control label {
+     flex-shrink: 0;
+}
+
+#controls #quantity-control span {
+     flex-shrink: 0;
+     min-width: 30px;
+     text-align: right;
+}
+
+#current-quantity {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 1.1em;
+}
+
+#additional-options,
+#payment-options {
+    width: 100%;
+    text-align: left;
+}
+
+#additional-options p,
+#payment-options p {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 1em;
+}
+
+#payment-options p.highlight {
+    color: #007bff;
+    font-size: 1.1em;
+}
+
+#additional-options div,
+.payment-option {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fefefe;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+
+#additional-options div label,
+.payment-option label {
+    font-weight: normal;
+    color: #333;
+    flex-grow: 1;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+#additional-options input[type="checkbox"],
+.payment-option input[type="checkbox"] {
+     margin: 0;
+     flex-shrink: 0;
+     cursor: pointer;
+     width: 18px;
+     height: 18px;
+}
+
+#additional-options input[type="checkbox"]:checked + label {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.payment-option.selected {
+    background-color: #e9ffe9;
+    border-color: #28a745;
+    box-shadow: 0 1px 3px rgba(40, 167, 69, 0.3);
+}
+
+.payment-option:hover {
+    background-color: #f0f0f0;
+}
+
+.payment-option.selected:hover {
+     background-color: #d4edda;
+}
+
+#price-display {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    width: 100%;
+    text-align: center;
+}
+
+#price-display span {
+     color: #0056b3;
+     margin-left: 5px;
+}
+
+.generate-qrcode-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.generate-qrcode-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.qr-modal .modal-content {
+    max-width: 400px;
+    padding: 30px;
+    text-align: center;
+    background-color: #fff;
+    flex-direction: column;
+}
+
+.qr-modal h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.3em;
+}
+
+#qrcode {
+    margin: 20px auto;
+    display: inline-block;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#qr-modal-message {
+    margin-top: 10px;
+    text-align: left;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+#qr-modal-message p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+#qr-modal-message p:last-child {
+    margin-bottom: 0;
+}
+
+#qr-modal-message p strong {
+    color: #333;
+}
+
+#qr-modal-message h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #333;
+    text-align: center;
+}
+
+#qr-modal-message hr {
+    margin: 15px auto;
+    width: 80%;
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+.qr-modal .close-button {
+    top: 10px;
+    right: 10px;
+}
+
+.download-button,
+.copy-button { 
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    margin-top: 10px; 
+}
+
+.download-button {
+    background-color: #28a745; 
+    color: white;
+    margin-top: 20px; 
+}
+
+.copy-button {
+    background-color: #ffc107; 
+    color: #333;
+}
+
+.download-button:hover {
+    background-color: #218838;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.copy-button:hover {
+    background-color: #e0a800;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.copy-button.copied {
+    background-color: #17a2b8; 
+    color: white;
+}
+
+#controls > div:not(:last-child) {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+#additional-options > div:last-child,
+#payment-options > div:last-child {
+    margin-bottom: 0;
+}
+
+#additional-options label,
+.payment-option label {
+    cursor: pointer;
+}
+
+#additional-options input[type="checkbox"],
+.payment-option input[type="checkbox"] {
+  /* Use custom checkbox styling if needed, or just improve the default look */
+  /* For now, let's rely on default look + label clickability */
+}

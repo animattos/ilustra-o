@@ -1,0 +1,614 @@
+const baseIllustrations = [
+    { src: '/ChatGPT Image 22 de mai. de 2025, 15_46_33.png', description: 'Ilustração de um menino voando entre nuvens, alegre e colorido.', price: 60 },
+    { src: '/ChatGPT Image 22 de mai. de 2025, 16_05_39.png', description: 'Ilustração estilizada de um menino correndo de um ônibus escolar amarelo.', price: 120 },
+    { src: '/ChatGPT Image 22 de mai. de 2025, 15_45_17.png', description: 'Ilustração colorida de um menino brincando com um cachorrinho em uma sala de estar.', price: 80 },
+    { src: '/ChatGPT Image 22 de mai. de 2025, 16_42_13.png', description: 'Ilustração de um super-herói preocupado em uma sala de aula com crianças entediadas.', price: 90 },
+    { src: '/ChatGPT Image 22 de mai. de 2025, 15_57_18.png', description: 'Ilustração de um menino surpreso ou assustado andando de bicicleta.', price: 70 },
+    { src: '/bd6cb4c0-63b3-4d55-b337-602533002b37.webp', description: 'Ilustração estilizada de um menino correndo com determinação.', price: 150 },
+    // Corrected filename for Illustration 7
+    { src: '/ChatGPT Image 22 de mai. de 2025, 16_44_36.png', description: 'Ilustração lúdica de um menino usando um smartphone com um dragão amigável por perto.', price: 110 },
+    { src: '/deby.jpg', description: 'Renderização 3D estilizada de Deby Musa sorrindo.', price: 180 },
+];
+
+const additionalModalImagesForFirstIllustration = [
+    { src: '/26b36dd1b533b5aef148e20cd1abaaec.jpg', description: 'Menino com camisa de quebra-cabeças.' },
+    { src: '/6a824706-83e2-4cc2-8394-57a3a9a78852.webp', description: 'Menino correndo de dinossauro.' },
+    { src: '/2c2e0e4b-648d-4207-8683-67c75ec61b65.webp', description: 'Menino de desenho animado olhando o celular.' },
+    { src: '/8a2c647d-1e81-4cfd-92be-95f12c56ae6e.webp', description: 'Menino usando smartphone.' },
+    { src: '/91f83834-3e78-4c06-845c-0e990e430817.webp', description: 'Pescador em estilo xilogravura.' },
+];
+
+const gallery = document.getElementById('gallery');
+const modal = document.getElementById('modal');
+const modalImage = document.getElementById('modal-image');
+const modalDescription = document.getElementById('modal-description');
+const closeButton = document.querySelector('.close-button');
+const prevButton = document.getElementById('prev-button');
+const nextButton = document.getElementById('next-button');
+
+const quantitySlider = document.getElementById('quantity-slider');
+const currentQuantitySpan = document.getElementById('current-quantity');
+const totalPriceSpan = document.getElementById('total-price');
+
+const optionTextLayout = document.getElementById('option-text-layout');
+const optionCoverDesign = document.getElementById('option-cover-design');
+const optionBookTrailer = document.getElementById('option-book-trailer');
+
+const optionCashDiscount = document.getElementById('option-cash-discount');
+const optionFiftyFifty = document.getElementById('option-fifty-fifty');
+
+const generateQrcodeButton = document.getElementById('generate-qrcode-button');
+const qrModal = document.getElementById('qr-modal');
+const qrModalClose = document.querySelector('.qr-close-button');
+const qrcodeDiv = document.getElementById('qrcode');
+const qrModalMessage = document.getElementById('qr-modal-message');
+const downloadDetailsButton = document.getElementById('download-details-button');
+const copyPixKeyButton = document.getElementById('copy-pix-key-button');
+
+// New elements for How It Works Modal
+const howItWorksButton = document.getElementById('how-it-works-button');
+const howItWorksModal = document.getElementById('how-it-works-modal');
+const howItWorksCloseButton = document.querySelector('.how-it-works-close-button');
+const howItWorksContent = document.getElementById('how-it-works-content'); 
+
+const TEXT_LAYOUT_PRICE_PER_ILLUSTRATION = 30;
+const COVER_DESIGN_PRICE = 250;
+const BOOK_TRAILER_PRICE = 2500;
+
+const DISPLAY_QUANTITY = 8;
+
+let currentModalIndex = 0;
+let currentModalImages = [];
+
+// --- Provided Pix generation script ---
+// Updated with user's information
+const chavePix = "estudioanimattos@gmail.com";
+const nomeRecebedor = "Alessandro Mattos";
+const cidadeRecebedor = "Rio de Janeiro";
+
+function calculateCRC16(str) {
+  let crc = 0xFFFF;
+  let polynomial = 0x1021;
+
+  for (let i = 0; i < str.length; i++) {
+    let byte = str.charCodeAt(i) & 0xFF;
+    crc ^= byte << 8;
+    for (let j = 0; j < 8; j++) {
+      if ((crc & 0x8000) !== 0) {
+        crc = ((crc << 1) ^ polynomial) & 0xFFFF;
+      } else {
+        crc = (crc << 1) & 0xFFFF;
+      }
+    }
+  }
+
+  crc &= 0xFFFF;
+  const hex = crc.toString(16).toUpperCase().padStart(4, '0');
+  return hex;
+}
+
+// Helper function to format TLV (Tag, Length, Value)
+const formatTLV = (tag, value) => {
+    const len = value.length;
+    const lenStr = len.toString().padStart(2, '0');
+    return `${tag}${lenStr}${value}`;
+};
+
+function generatePixData(valor, selectedDetails) {
+  const valorFormatado = valor.toFixed(2);
+  // Include selected details in the description/transaction ID if possible,
+  // but the EMV standard has limitations on custom fields and length.
+  // For simplicity and standard compliance, we'll keep a simple ID
+  // and display details in the modal text, not the QR payload itself.
+  // The EMV standard doesn't have dedicated fields for detailed order breakdowns.
+  const idTx = "***"; 
+
+  // Payload format indicator (ID 00) - Must be '01'
+  const payloadFormatIndicator = formatTLV('00', '01');
+
+  // Point of Initiation Method (ID 01) - '11' for static QR, '12' for dynamic
+   const pointOfInitiation = formatTLV('01', '11');
+
+
+  // Merchant account information (ID 26)
+  let merchantAccount = formatTLV('00', 'BR.GOV.BCB.PIX'); 
+  merchantAccount += formatTLV('01', chavePix); 
+  // Optional: GUI (00), Key type (01), Description (02), URL (25)
+  // We could add a brief description here, but length is limited.
+  // Let's stick to the required fields for maximum compatibility.
+  const merchantAccountInformation = formatTLV('26', merchantAccount);
+
+
+  // Merchant category code (ID 52) - Using 0000 for no MCC provided
+  const merchantCategoryCode = formatTLV('52', '0000');
+
+  // Transaction currency (ID 53) - 986 for BRL
+  const transactionCurrency = formatTLV('53', '986');
+
+  // Transaction amount (ID 54)
+  const transactionAmount = formatTLV('54', valorFormatado);
+
+  // Country code (ID 58) - BR for Brazil
+  const countryCode = formatTLV('58', 'BR');
+
+  // Merchant name (ID 59)
+  const merchantName = formatTLV('59', nomeRecebedor);
+
+  // Merchant city (ID 60)
+  const merchantCity = formatTLV('60', cidadeRecebedor);
+
+  // Additional Data Field Template (ID 62)
+  // Field 05: Reference Label (Transaction ID)
+  let additionalData = formatTLV('05', idTx); 
+  const additionalDataFieldTemplate = formatTLV('62', additionalData);
+
+
+  // Concatenate the components *before* the CRC tag
+  let pixCodeDataWithoutCRC = payloadFormatIndicator + pointOfInitiation + merchantAccountInformation + merchantCategoryCode + transactionCurrency + transactionAmount + countryCode + merchantName + merchantCity + additionalDataFieldTemplate;
+
+  // CRC16-CCITT tag (ID 63) - This must be the LAST field's tag, *before* calculating the CRC
+  let crc16Tag = "6304"; 
+
+  // Calculate CRC on the payload string *including* the '6304' tag
+  const payloadForCRC = pixCodeDataWithoutCRC + crc16Tag;
+  const calculatedCrc16 = calculateCRC16(payloadForCRC);
+
+  // Append the CRC tag and the calculated CRC value
+  const pixCode = payloadForCRC + calculatedCrc16;
+
+  return pixCode;
+}
+// --- End of provided Pix generation script ---
+
+
+function createGalleryItem(illustration, index) {
+    const itemDiv = document.createElement('div');
+    itemDiv.classList.add('gallery-item');
+    itemDiv.dataset.index = index;
+
+    const imageContainer = document.createElement('div');
+    imageContainer.classList.add('image-container');
+
+    const img = document.createElement('img');
+    img.src = illustration.src;
+    img.alt = 'Thumbnail: ' + illustration.description;
+
+    imageContainer.appendChild(img);
+
+    const infoRow = document.createElement('div');
+    infoRow.classList.add('info-row');
+
+    const priceDisplay = document.createElement('div');
+    priceDisplay.classList.add('illustration-price');
+    priceDisplay.textContent = `R$ ${illustration.price.toFixed(2)}`;
+
+    const checkboxContainer = document.createElement('div');
+    checkboxContainer.classList.add('illustration-checkbox');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `illustration-${index}`;
+    checkbox.checked = false; 
+    const label = document.createElement('label');
+    label.htmlFor = `illustration-${index}`;
+    label.textContent = `Incluir (${index + 1})`; 
+
+    checkboxContainer.appendChild(checkbox);
+    checkboxContainer.appendChild(label);
+
+    infoRow.appendChild(priceDisplay);
+    infoRow.appendChild(checkboxContainer);
+
+    itemDiv.appendChild(imageContainer);
+    itemDiv.appendChild(infoRow);
+
+    itemDiv.addEventListener('click', (event) => {
+         if (!checkboxContainer.contains(event.target)) {
+             openModal(index);
+        }
+    });
+
+
+    checkbox.addEventListener('change', function() {
+        handleCheckboxChange(this);
+        updateCalculationDisplay();
+    });
+
+    // Allows clicking the entire checkbox container or label to toggle
+    checkboxContainer.addEventListener('click', (event) => {
+         if (event.target !== checkbox) {
+             checkbox.checked = !checkbox.checked;
+             handleCheckboxChange(checkbox);
+             updateCalculationDisplay();
+         }
+    });
+
+
+    return itemDiv;
+}
+
+function handleCheckboxChange(changedCheckbox) {
+    const checkboxes = gallery.querySelectorAll('.illustration-checkbox input[type="checkbox"]');
+
+    if (changedCheckbox.checked) {
+        checkboxes.forEach(checkbox => {
+            if (checkbox !== changedCheckbox) {
+                checkbox.checked = false;
+                checkbox.disabled = true;
+                checkbox.closest('.gallery-item').classList.add('disabled');
+            }
+        });
+    } else {
+        checkboxes.forEach(checkbox => {
+            checkbox.disabled = false;
+            checkbox.closest('.gallery-item').classList.remove('disabled');
+        });
+    }
+}
+
+function populateGallery() {
+    gallery.innerHTML = '';
+
+    const illustrationsToDisplay = baseIllustrations.slice(0, Math.min(DISPLAY_QUANTITY, baseIllustrations.length));
+
+    illustrationsToDisplay.forEach((illustration, index) => {
+        const item = createGalleryItem(illustration, index);
+        gallery.appendChild(item);
+    });
+
+}
+
+function updateCalculationDisplay() {
+    const quantity = parseInt(quantitySlider.value, 10);
+    currentQuantitySpan.textContent = quantity;
+
+    let selectedIllustrationsBaseCost = 0;
+    let selectedIllustrationIndex = -1;
+
+    const selectedCheckbox = gallery.querySelector('.illustration-checkbox input[type="checkbox"]:checked');
+
+    if (selectedCheckbox) {
+        const itemDiv = selectedCheckbox.closest('.gallery-item');
+        const index = parseInt(itemDiv.dataset.index, 10);
+        if (index >= 0 && index < baseIllustrations.length) {
+            selectedIllustrationsBaseCost = baseIllustrations[index].price;
+            selectedIllustrationIndex = index; 
+        } else {
+            console.warn("Selected illustration index out of bounds:", index);
+            selectedCheckbox.checked = false;
+            handleCheckboxChange(selectedCheckbox); 
+        }
+    }
+
+    let baseTotal = selectedIllustrationsBaseCost * quantity;
+
+    let additionalServicesList = [];
+    if (optionTextLayout.checked) {
+        baseTotal += quantity * TEXT_LAYOUT_PRICE_PER_ILLUSTRATION;
+        additionalServicesList.push('Texto e diagramação');
+    }
+    if (optionCoverDesign.checked) {
+        baseTotal += COVER_DESIGN_PRICE;
+        additionalServicesList.push('Ilustração de design de capa');
+    }
+    if (optionBookTrailer.checked) {
+        baseTotal += BOOK_TRAILER_PRICE;
+        additionalServicesList.push('Criação de book trailer');
+    }
+
+    let finalPrice = baseTotal;
+
+    const cashDiscountOptionDiv = optionCashDiscount.closest('.payment-option');
+    const fiftyFiftyOptionDiv = optionFiftyFifty.closest('.payment-option');
+
+    document.querySelectorAll('.payment-option').forEach(div => div.classList.remove('selected'));
+
+    // Handle exclusive payment options
+    if (optionCashDiscount.checked && optionFiftyFifty.checked) {
+        // If both are checked, uncheck the one most recently checked, or fiftyFifty
+        // Let's enforce cash discount if both are attempted.
+        optionFiftyFifty.checked = false;
+    } else if (!optionCashDiscount.checked && !optionFiftyFifty.checked) {
+         // Default state, no specific class
+    }
+
+
+    if (optionCashDiscount.checked) {
+        finalPrice = baseTotal * 0.9;
+        cashDiscountOptionDiv.classList.add('selected');
+    } else if (optionFiftyFifty.checked) {
+        finalPrice = baseTotal * 0.5;
+        fiftyFiftyOptionDiv.classList.add('selected');
+    } else {
+        finalPrice = baseTotal; // No discount or split
+    }
+
+     totalPriceSpan.textContent = `R$ ${finalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+     // Return details for QR modal message
+     return {
+         selectedIllustrationIndex: selectedIllustrationIndex,
+         quantity: quantity,
+         additionalServices: additionalServicesList,
+         finalPrice: finalPrice,
+         paymentOption: optionCashDiscount.checked ? 'À Vista (10% desconto)' : (optionFiftyFifty.checked ? '50% agora, 50% na entrega' : 'Preço Cheio')
+     };
+}
+
+function updateModalContent(newIndex) {
+    if (currentModalImages.length === 0) {
+        console.error("No images available for modal.");
+        closeModal();
+        return;
+    }
+
+    const effectiveIndex = (newIndex % currentModalImages.length + currentModalImages.length) % currentModalImages.length;
+
+    const imageItem = currentModalImages[effectiveIndex];
+
+    if (!imageItem || !imageItem.src) {
+        console.error("Invalid image item at index", effectiveIndex, imageItem);
+        closeModal();
+        return;
+    }
+
+    modalImage.src = imageItem.src;
+
+    let descriptionText = 'Descrição não disponível.';
+    // Prioritize description directly on the modal item, then fall back to base illustration description
+    if (imageItem.description) {
+        descriptionText = imageItem.description;
+    } else if (imageItem.baseIndex !== undefined && baseIllustrations[imageItem.baseIndex]) {
+        descriptionText = baseIllustrations[imageItem.baseIndex].description;
+    }
+
+    modalDescription.textContent = descriptionText;
+
+    currentModalIndex = effectiveIndex;
+}
+
+function openModal(baseIndex) {
+    const baseIllustration = baseIllustrations[baseIndex];
+
+    if (!baseIllustration) {
+        console.error("Base illustration not found for index:", baseIndex);
+        return;
+    }
+
+    currentModalImages = [];
+
+    // Always include the base illustration as the first item
+    currentModalImages.push({ src: baseIllustration.src, baseIndex: baseIndex, description: baseIllustration.description });
+
+    // Add specific additional images if needed (currently only for index 0)
+    if (baseIndex === 0) {
+        currentModalImages.push(...additionalModalImagesForFirstIllustration);
+    }
+
+    currentModalIndex = 0; 
+    updateModalContent(0);
+
+    modal.classList.add('active');
+}
+
+function closeModal() {
+    modal.classList.remove('active');
+    currentModalImages = [];
+    currentModalIndex = 0;
+    modalImage.src = "";
+    modalDescription.textContent = "";
+}
+
+function closeQrModal() {
+    qrModal.classList.remove('active');
+    // Clear the QR code when modal is closed
+    if (qrcodeDiv) {
+        qrcodeDiv.innerHTML = '';
+    }
+    // Reset copy button text
+    if (copyPixKeyButton) {
+        copyPixKeyButton.textContent = 'Copiar Chave Pix';
+        copyPixKeyButton.classList.remove('copied'); // Remove success state class
+    }
+}
+
+// New function to close the "How It Works" modal
+function closeHowItWorksModal() {
+    howItWorksModal.classList.remove('active');
+}
+
+
+prevButton.addEventListener('click', () => {
+    updateModalContent(currentModalIndex - 1);
+});
+
+nextButton.addEventListener('click', () => {
+    updateModalContent(currentModalIndex + 1);
+});
+
+// Use the existing close button for the main modal
+closeButton.addEventListener('click', closeModal);
+
+// Use the new close button for the QR modal
+qrModalClose.addEventListener('click', closeQrModal);
+
+// Add event listener for the new "How It Works" button
+howItWorksButton.addEventListener('click', () => {
+    howItWorksModal.classList.add('active');
+});
+
+// Add event listener for the new "How It Works" close button
+howItWorksCloseButton.addEventListener('click', closeHowItWorksModal);
+
+
+// Close modals if clicking outside the content
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        closeModal();
+    }
+    if (event.target === qrModal) {
+        closeQrModal();
+    }
+     if (event.target === howItWorksModal) {
+        closeHowItWorksModal();
+    }
+});
+
+
+quantitySlider.addEventListener('input', updateCalculationDisplay);
+
+optionTextLayout.addEventListener('change', updateCalculationDisplay);
+optionCoverDesign.addEventListener('change', updateCalculationDisplay);
+optionBookTrailer.addEventListener('change', updateCalculationDisplay);
+
+// Ensure only one payment option can be selected
+optionCashDiscount.addEventListener('change', function() {
+    if (this.checked) {
+        optionFiftyFifty.checked = false; 
+    }
+    updateCalculationDisplay();
+});
+optionFiftyFifty.addEventListener('change', function() {
+    if (this.checked) {
+        optionCashDiscount.checked = false; 
+    }
+    updateCalculationDisplay();
+});
+
+generateQrcodeButton.addEventListener('click', () => {
+    const calculationDetails = updateCalculationDisplay(); 
+
+    const totalAmount = calculationDetails.finalPrice;
+    const selectedIllustrationIndex = calculationDetails.selectedIllustrationIndex;
+    const quantity = calculationDetails.quantity;
+    const additionalServices = calculationDetails.additionalServices;
+    const paymentOption = calculationDetails.paymentOption;
+
+
+    if (selectedIllustrationIndex === -1 || quantity <= 0) {
+         alert("Por favor, selecione uma ilustração e a quantidade desejada.");
+         return;
+    }
+
+    if (isNaN(totalAmount) || totalAmount <= 0) {
+        alert("Por favor, selecione uma ilustração e quantidade para calcular o valor total.");
+        return;
+    }
+
+    // Generate Pix payload - EMV standard doesn't include detailed order breakdown
+    // The details will be shown in the modal message instead.
+    // Passing selectedDetails just in case generatePixData ever needs them (it doesn't for payload)
+    const pixPayload = generatePixData(totalAmount, calculationDetails);
+
+    console.log("Generated Pix Payload:", pixPayload);
+
+    if (qrcodeDiv) {
+        qrcodeDiv.innerHTML = ''; 
+    } else {
+        console.error("QR code div not found.");
+        alert("Erro interno: Elemento QR Code não encontrado.");
+        return;
+    }
+
+    try {
+        if (typeof QRCode !== 'undefined') {
+            new QRCode(qrcodeDiv, {
+                text: pixPayload,
+                width: 256,
+                height: 256,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            // Format the order details for the modal message
+            let orderDetailsHtml = `
+                <h3>Resumo do Pedido:</h3>
+                <p><strong>Ilustração Selecionada:</strong> #${selectedIllustrationIndex + 1}</p>
+                <p><strong>Quantidade:</strong> ${quantity}</p>
+            `;
+
+            if (additionalServices.length > 0) {
+                orderDetailsHtml += `<p><strong>Serviços Adicionais:</strong> ${additionalServices.join(', ')}</p>`;
+            } else {
+                 orderDetailsHtml += `<p><strong>Serviços Adicionais:</strong> Nenhum</p>`;
+            }
+
+            orderDetailsHtml += `
+                <p><strong>Forma de Pagamento:</strong> ${paymentOption}</p>
+                <p><strong>Valor:</strong> R$ ${totalAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                <hr style="margin: 15px 0;">
+                <p>Escaneie o QR Code abaixo para pagar via Pix.</p>
+                <p style="font-size: 0.8em; color: #777;">
+                    <strong>Nome:</strong> ${nomeRecebedor}<br>
+                    <strong>Chave Pix:</strong> ${chavePix} (E-mail)<br>
+                    <strong>Cidade:</strong> ${cidadeRecebedor}
+                </p>
+            `;
+
+            // Update the QR modal message with order details and payment instructions
+            qrModalMessage.innerHTML = orderDetailsHtml; 
+
+
+            qrModal.classList.add('active');
+
+        } else {
+            console.error("QRCode library not loaded.");
+            alert("Erro ao carregar a biblioteca de QR Code.");
+        }
+    } catch (error) {
+        console.error("Error generating QR Code:", error);
+        alert("Erro ao gerar o QR Code.");
+    }
+});
+
+// Add event listener for the download button
+downloadDetailsButton.addEventListener('click', () => {
+    // Get the text content from the qr-modal-message div
+    const detailsText = qrModalMessage.innerText || qrModalMessage.textContent;
+
+    // Clean up extra whitespace from the message for better download
+    const cleanedText = detailsText.split('\n')
+        .map(line => line.trim())
+        .filter(line => line.length > 0)
+        .join('\n');
+
+
+    // Create a Blob with the text content
+    const blob = new Blob([cleanedText], { type: 'text/plain' });
+
+    // Create a download link
+    const downloadLink = document.createElement('a');
+    downloadLink.href = URL.createObjectURL(blob);
+    downloadLink.download = 'detalhes_pedido_ilustracao.txt';
+
+    // Programmatically click the link to trigger the download
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+
+    // Revoke the object URL to free up resources
+    URL.revokeObjectURL(downloadLink.href);
+});
+
+// Add event listener for the Copy Pix Key button
+copyPixKeyButton.addEventListener('click', () => {
+    navigator.clipboard.writeText(chavePix).then(() => {
+        // Optional: Provide user feedback
+        copyPixKeyButton.textContent = 'Copiado!';
+        copyPixKeyButton.classList.add('copied'); // Add a success state class
+
+        // Reset button text after a short delay
+        setTimeout(() => {
+            copyPixKeyButton.textContent = 'Copiar Chave Pix';
+            copyPixKeyButton.classList.remove('copied'); // Remove success state class
+        }, 2000); // Reset after 2 seconds
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+        alert('Erro ao copiar a chave Pix.');
+    });
+});
+
+
+// Initial population and calculation display
+populateGallery();
+updateCalculationDisplay();

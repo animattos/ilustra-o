@@ -1,1 +1,129 @@
-<h1>Olá!</h1>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Ilustrações</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "script": "./script.js"
+                
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Estilo de Ilustração</h1>
+        <button id="how-it-works-button" class="how-it-works-button">Como Funciona</button>
+    </header>
+
+
+    <div id="gallery">
+        <!-- Ilustrações serão carregadas aqui pelo JavaScript -->
+    </div>
+
+    <div id="controls">
+        <div class="control-group">
+            <label for="quantity-slider">Quantidade de Ilustrações:</label>
+            <div id="quantity-control">
+                <input type="range" id="quantity-slider" min="1" max="100" value="1">
+                <span id="current-quantity">1</span>
+            </div>
+        </div>
+
+        <div id="additional-options" class="control-group">
+            <p>Serviços Adicionais:</p>
+            <div>
+                <input type="checkbox" id="option-text-layout">
+                <label for="option-text-layout">Texto e diagramação (R$ 30,00 / ilustração)</label>
+            </div>
+            <div>
+                <input type="checkbox" id="option-cover-design">
+                <label for="option-cover-design">Ilustração de design de capa (R$ 250,00)</label>
+            </div>
+            <div>
+                <input type="checkbox" id="option-book-trailer">
+                <label for="option-book-trailer">Criação de book trailer (R$ 2500,00)</label>
+            </div>
+        </div>
+
+        <div id="payment-options" class="control-group">
+            <p class="highlight">Opções de Pagamento:</p>
+            <div class="payment-option">
+                <input type="checkbox" id="option-cash-discount" name="payment-option">
+                <label for="option-cash-discount">À vista (10% de desconto)</label>
+            </div>
+            <div class="payment-option">
+                <input type="checkbox" id="option-fifty-fifty" name="payment-option">
+                <label for="option-fifty-fifty">50% para iniciar, 50% na entrega</label>
+            </div>
+        </div>
+
+        <div id="price-display" class="control-group">
+            Preço Total: <span id="total-price">R$ 0,00</span>
+        </div>
+
+        <button id="generate-qrcode-button" class="generate-qrcode-button">Gerar QR Code de pagamento</button>
+
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-gallery-container">
+                <button id="prev-button" class="modal-nav-button">&lt;</button>
+                <img id="modal-image" src="" alt="Ilustração ampliada">
+                <button id="next-button" class="modal-nav-button">&gt;</button>
+            </div>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div id="qr-modal" class="modal qr-modal">
+        <div class="modal-content qr-modal-content">
+            <span class="close-button qr-close-button">&times;</span>
+            <h2>QR Code para Pagamento</h2>
+            <div id="qrcode"></div>
+            <div id="qr-modal-message">
+                <p>Carregando detalhes do pagamento...</p>
+                <!-- Order details will be injected here -->
+            </div>
+            <!-- Download button -->
+            <button id="download-details-button" class="download-button">Download Detalhes do Pedido</button>
+            <!-- New Copy Pix Key button -->
+            <button id="copy-pix-key-button" class="copy-button">Copiar Chave Pix</button>
+        </div>
+    </div>
+
+    <!-- New How It Works Modal -->
+    <div id="how-it-works-modal" class="modal how-it-works-modal">
+        <div class="modal-content how-it-works-modal-content">
+            <span class="close-button how-it-works-close-button">&times;</span>
+            <h2>Como Funciona</h2>
+            <div id="how-it-works-content">
+                <p>Bem-vindo ao nosso portfólio de ilustrações!</p>
+                <p>Aqui você pode escolher o estilo de ilustração que mais gosta e personalizar seu pedido.</p>
+                <ol>
+                    <li><strong>Escolha sua Ilustração:</strong> Navegue pela galeria e clique em uma imagem para ver detalhes ou clique na caixa "Incluir" para selecioná-la como base para seu pedido.</li>
+                    <li><strong>Defina a Quantidade:</strong> Use o controle deslizante para especificar quantas ilustrações você precisa neste mesmo estilo.</li>
+                    <li><strong>Adicione Serviços:</strong> Selecione quaisquer serviços adicionais como texto e diagramação, design de capa ou book trailer, conforme sua necessidade.</li>
+                    <li><strong>Escolha a Opção de Pagamento:</strong> Selecione a forma de pagamento desejada para ver o cálculo do preço final.</li>
+                    <li><strong>Verifique o Preço Total:</strong> O valor total do seu pedido será atualizado automaticamente.</li>
+                    <li><strong>Gerar QR Code:</strong> Clique no botão "Gerar QR Code de pagamento" para ver os detalhes do seu pedido e o QR Code para pagamento via Pix.</li>
+                    <li><strong>Baixe os Detalhes:</strong> Use o botão de download no modal do QR Code para salvar os detalhes do seu pedido.</li>
+                </ol>
+                <p>Pronto! Após a confirmação do pagamento, entraremos em contato para prosseguir com seu projeto.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Load qrcodejs globally before the main script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
