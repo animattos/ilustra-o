@@ -2,7 +2,7 @@ const baseIllustrations = [
     { src: './01.png', description: 'Esboço a lápis com linhas feitas à mão simulando grafite.', price: 55 },
     { src: './02.png', description: ' Ilustração com contornos limpos, expressivos e bem definidos.', price: 65 },
     { src: './03.png', description: 'Ilustração digital colorida com textura manual imitando pinceladas.', price: 85 },
-    { src: './04.png', description: 'Ilustração de um super-herói preocupado em uma sala de aula com crianças entediadas.', price: 90 },
+    { src: './09.png', description: 'Ilustração de um super-herói preocupado em uma sala de aula com crianças entediadas.', price: 90 },
     { src: './05.png', description: 'Ilustração de um menino surpreso ou assustado andando de bicicleta.', price: 70 },
     { src: './06.png', description: 'Ilustração estilizada de um menino correndo com determinação.', price: 150 },
     { src: './07.png', description: 'Ilustração lúdica de um menino usando um smartphone com um dragão amigável por perto.', price: 110 },
