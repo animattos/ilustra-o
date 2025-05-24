@@ -33,6 +33,17 @@ const additionalModalImagesForThirdIllustration = [
   { src: './03D.png', description: 'Isso que chamo de manobra radical.' },
   { src: './03E.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
   { src: './03F.png', description: 'O seu pai é um super herói?' },
+
+  { src: './03G.png', description: 'O menino brincava com o seu cãozinho.' },
+  { src: './03H.png', description: 'O menino correu daquele touro feroz.' },
+  { src: './03I.png', description: 'Ele abraçou sua mãezinha feliz.' },
+  { src: './03J.png', description: 'Isso que chamo de manobra radical.' },
+  { src: './03L.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
+  { src: './03M.png', description: 'O seu pai é um super herói?' },
+  { src: './03N.png', description: 'Isso que chamo de manobra radical.' },
+  { src: './03O.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
+  { src: './03P.png', description: 'O seu pai é um super herói?' },
+  { src: './03Q.png', description: 'O seu pai é um super herói?' },
 ];
 
 const additionalModalImagesForFourthIllustration = [
