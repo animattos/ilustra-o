@@ -15,6 +15,8 @@ const additionalModalImagesForFirstIllustration = [
     { src: './01C.png', description: 'O cão e o gato assistiam o pôr do sol.' },
     { src: './01D.png', description: 'Juca ensinava sobre a internet para a lagartinha.' },
     { src: './01E.png', description: 'O príncipe veio salvar a princesa das garras do dragão' },
+    { src: './01F.png', description: 'A fazendeira gostava muito de sua fazenda. ' },
+    { src: './01G.png', description: 'O cachoro skatista muito engraçado.' },
 ];
 
 const additionalModalImagesForSecondIllustration = [
