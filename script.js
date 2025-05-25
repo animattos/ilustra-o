@@ -581,10 +581,10 @@ generateQrcodeButton.addEventListener('click', () => {
                 <p><strong>Forma de Pagamento:</strong> ${paymentOption}</p>
                 <p><strong>Valor:</strong> R$ ${totalAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                 <hr style="margin: 15px 0;">
-                <p>Escaneie o QR Code abaixo para pagar via Pix.</p>
+                <p>Escaneie o QR Code acima para pagar via Pix.</p>
                 <p style="font-size: 0.8em; color: #777;">
                     <strong>Nome:</strong> ${nomeRecebedor}<br>
-                    <strong>Chave Pix:</strong> ${chavePix} (E-mail)<br>
+                    <strong>Chave Pix:</strong> ${chavePix} <br>
                     <strong>Cidade:</strong> ${cidadeRecebedor}
                 </p>
             `;
