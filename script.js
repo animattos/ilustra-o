@@ -3,7 +3,7 @@ const baseIllustrations = [
     { src: './02.png', description: ' Ilustração com contornos limpos, expressivos e bem definidos.', price: 65 },
     { src: './03.png', description: 'Ilustração digital colorida com textura manual imitando pinceladas.', price: 85 },
     { src: './04.png', description: 'Ilustração estilo 3D mais infantil e acabamento limpo.', price: 90 },
-    { src: './05.png', description: 'Ilustração voltada para infantojuvenil nais realista.', price: 70 },
+    { src: './05.png', description: 'Ilustração voltada para infantojuvenil mais realista.', price: 70 },
     { src: './06.png', description: 'Ilustração estilizada de um menino correndo com determinação.', price: 150 },
     { src: './07.png', description: 'Ilustração lúdica de um menino usando um smartphone com um dragão amigável por perto.', price: 110 },
     { src: './08.png', description: 'Renderização 3D estilizada de Deby Musa sorrindo.', price: 180 },
