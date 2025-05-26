@@ -3,7 +3,7 @@ const baseIllustrations = [
     { src: './02.png', description: ' Ilustração com contornos limpos, expressivos e bem definidos.', price: 65 },
     { src: './03.png', description: 'Ilustração digital colorida com textura manual imitando pinceladas.', price: 85 },
     { src: './04.png', description: 'Ilustração estilo 3D mais infantil e acabamento limpo.', price: 90 },
-    { src: './05.png', description: 'Ilustração de um menino surpreso ou assustado andando de bicicleta.', price: 70 },
+    { src: './05.png', description: 'Ilustração voltada para infantojuvenil nais realista.', price: 70 },
     { src: './06.png', description: 'Ilustração estilizada de um menino correndo com determinação.', price: 150 },
     { src: './07.png', description: 'Ilustração lúdica de um menino usando um smartphone com um dragão amigável por perto.', price: 110 },
     { src: './08.png', description: 'Renderização 3D estilizada de Deby Musa sorrindo.', price: 180 },
@@ -59,16 +59,30 @@ const additionalModalImagesForFourthIllustration = [
  
 ];
 const additionalModalImagesForFifthIllustration = [
-  { src: './05A.png', description: 'Menina empinando pipa com o seu cãozinho.' },
-  { src: './05B.png', description: 'O menino conversava com o sirizinho.' },
-  { src: './05C.png', description: 'Ela abraçava seu gatinho chato.' },
-  { src: './05D.png', description: 'O feirante vendia muito naquele dia.' },
-  { src: './05E.png', description: 'Ele corria em volta da fazendinha.' },
-  { src: './05F.png', description: 'Eles estavam com medo de cair da bike.' },
-  { src: './05G.png', description: 'Ele se vestia de super-herói e fazia o bem.' },
-  { src: './05H.png', description: 'Eles passavam o dia juntos lendo livro.' },
-  { src: './05I.png', description: 'Eles passavam o dia juntos lendo livro.' },
-  { src: './05J.png', description: 'Eles passavam o dia juntos lendo livro.' },  
+  { src: './05A.png', description: 'Jovem andava de skate pelas vias perigozamente.' },
+  { src: './05B.png', description: 'O carteiro foi atacado pelos cães.' },
+  { src: './05C.png', description: 'Ele pedia esmolas para sobreviver.' },
+  { src: './05D.png', description: 'O dinossauro atacou o seu carro.' },
+  { src: './05E.png', description: 'Ele ia todas manhãs pescar no lago.' },
+  { src: './05F.png', description: 'Ela chorava sempre que se lembrava disso.' },
+  { src: './05G.png', description: 'Os zumbis o atacaram em bando.' },
+  { src: './05H.png', description: 'Joãozinho foi visto pelo gigante.' },
+  { src: './05I.png', description: 'Tudo parecia enorme diante dele.' },
+  { src: './05J.png', description: 'Ele tinha asas e podia voar.' },  
+ 
+];
+
+const additionalModalImagesForSixthIllustration = [
+  { src: './06A.png', description: 'Menina empinando pipa com o seu cãozinho.' },
+  { src: './06B.png', description: 'O menino conversava com o sirizinho.' },
+  { src: './06C.png', description: 'Ela abraçava seu gatinho chato.' },
+  { src: './06D.png', description: 'O feirante vendia muito naquele dia.' },
+  { src: './06E.png', description: 'Ele corria em volta da fazendinha.' },
+  { src: './06F.png', description: 'Eles estavam com medo de cair da bike.' },
+  { src: './06G.png', description: 'Ele se vestia de super-herói e fazia o bem.' },
+  { src: './06H.png', description: 'Eles passavam o dia juntos lendo livro.' },
+  { src: './06I.png', description: 'Eles passavam o dia juntos lendo livro.' },
+  { src: './06J.png', description: 'Eles passavam o dia juntos lendo livro.' },  
  
 ];
 
@@ -446,7 +460,10 @@ function openModal(baseIndex) {
 } else if (baseIndex === 3) {
     currentModalImages.push(...additionalModalImagesForFourthIllustration);  
 } else if (baseIndex === 4) {
-    currentModalImages.push(...additionalModalImagesForFifthIllustration);
+    currentModalImages.push(...additionalModalImagesForFifthIllustration); 
+
+} else if (baseIndex === 5) {
+    currentModalImages.push(...additionalModalImagesForSixthIllustration); 
 
 }
   
