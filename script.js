@@ -67,6 +67,7 @@ const additionalModalImagesForFifthIllustration = [
   { src: './05F.png', description: 'Eles estavam com medo de cair da bike.' },
   { src: './05G.png', description: 'Ele se vestia de super-herói e fazia o bem.' },
   { src: './05H.png', description: 'Eles passavam o dia juntos lendo livro.' },
+  { src: './05I.png', description: 'Eles passavam o dia juntos lendo livro.' },
  
 ];
 
