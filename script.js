@@ -47,7 +47,7 @@ const additionalModalImagesForThirdIllustration = [
   { src: './03Q.png', description: 'O seu pai é um super herói?' },
 ];
 
-const additionalModalImagesForFourxllustration = [
+const additionalModalImagesForFifthIllustration = [
   { src: './05A.png', description: 'Menina empinando pipa com o seu cãozinho.' },
   { src: './05B.png', description: 'O menino conversava com o sirizinho.' },
   { src: './05C.png', description: 'Ela abraçava seu gatinho chato.' },
@@ -442,7 +442,7 @@ function openModal(baseIndex) {
 } else if (baseIndex === 3) {
     currentModalImages.push(...additionalModalImagesForFourthIllustration);
 } 
-    currentModalImages.push(...additionalModalImagesForFourxllustration);
+    currentModalImages.push(...additionalModalImagesForFifthIllustration);
 } 
 
     currentModalIndex = 0; 
