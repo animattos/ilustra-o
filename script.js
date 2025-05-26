@@ -48,14 +48,14 @@ const additionalModalImagesForThirdIllustration = [
 ];
 
 const additionalModalImagesForFourxllustration = [
-  { src: './04A.png', description: 'Menina empinando pipa com o seu cãozinho.' },
-  { src: './04B.png', description: 'O menino conversava com o sirizinho.' },
-  { src: './04C.png', description: 'Ela abraçava seu gatinho chato.' },
-  { src: './04D.png', description: 'O feirante vendia muito naquele dia.' },
-  { src: './04E.png', description: 'Ele corria em volta da fazendinha.' },
-  { src: './04F.png', description: 'Eles estavam com medo de cair da bike.' },
-  { src: './04G.png', description: 'Ele se vestia de super-herói e fazia o bem.' },
-  { src: './04H.png', description: 'Eles passavam o dia juntos lendo livro.' },
+  { src: './05A.png', description: 'Menina empinando pipa com o seu cãozinho.' },
+  { src: './05B.png', description: 'O menino conversava com o sirizinho.' },
+  { src: './05C.png', description: 'Ela abraçava seu gatinho chato.' },
+  { src: './05D.png', description: 'O feirante vendia muito naquele dia.' },
+  { src: './05E.png', description: 'Ele corria em volta da fazendinha.' },
+  { src: './05F.png', description: 'Eles estavam com medo de cair da bike.' },
+  { src: './05G.png', description: 'Ele se vestia de super-herói e fazia o bem.' },
+  { src: './05H.png', description: 'Eles passavam o dia juntos lendo livro.' },
  
 ];
 
