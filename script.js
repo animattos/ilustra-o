@@ -59,17 +59,7 @@ const additionalModalImagesForFourthIllustration = [
  
 ];
 
-const additionalModalImagesForFifthIllustration = [
-  { src: './05A.png', description: 'Menina empinando pipa com o seu cãozinho.' },
-  { src: './05B.png', description: 'O menino conversava com o sirizinho.' },
-  { src: './05C.png', description: 'Ela abraçava seu gatinho chato.' },
-  { src: './05D.png', description: 'O feirante vendia muito naquele dia.' },
-  { src: './05E.png', description: 'Ele corria em volta da fazendinha.' },
-  { src: './05F.png', description: 'Eles estavam com medo de cair da bike.' },
-  { src: './05G.png', description: 'Ele se vestia de super-herói e fazia o bem.' },
-  { src: './05H.png', description: 'Eles passavam o dia juntos lendo livro.' },
- 
-];
+
 
 const gallery = document.getElementById('gallery');
 const modal = document.getElementById('modal');
@@ -441,9 +431,7 @@ function openModal(baseIndex) {
     currentModalImages.push(...additionalModalImagesForThirdIllustration);
 } else if (baseIndex === 3) {
     currentModalImages.push(...additionalModalImagesForFourthIllustration);
-} else if (baseIndex === 4) {
-    currentModalImages.push(...additionalModalImagesForFifthIllustration);
-} 
+}  
 
     currentModalIndex = 0; 
     updateModalContent(0);
