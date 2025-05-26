@@ -2,7 +2,7 @@ const baseIllustrations = [
     { src: './01.png', description: 'Esboço a lápis com linhas feitas à mão simulando grafite.', price: 55 },
     { src: './02.png', description: ' Ilustração com contornos limpos, expressivos e bem definidos.', price: 65 },
     { src: './03.png', description: 'Ilustração digital colorida com textura manual imitando pinceladas.', price: 85 },
-    { src: './09.png', description: 'Ilustração de um super-herói preocupado em uma sala de aula com crianças entediadas.', price: 90 },
+    { src: './04.png', description: 'Ilustração estilo 3D mais infantil e acabamento limpo.', price: 90 },
     { src: './05.png', description: 'Ilustração de um menino surpreso ou assustado andando de bicicleta.', price: 70 },
     { src: './06.png', description: 'Ilustração estilizada de um menino correndo com determinação.', price: 150 },
     { src: './07.png', description: 'Ilustração lúdica de um menino usando um smartphone com um dragão amigável por perto.', price: 110 },
@@ -53,6 +53,9 @@ const additionalModalImagesForFourthIllustration = [
   { src: './04C.png', description: 'Ele abraçou sua mãezinha feliz.' },
   { src: './04D.png', description: 'Isso que chamo de manobra radical.' },
   { src: './04E.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
+  { src: './04F.png', description: 'Ele abraçou sua mãezinha feliz.' },
+  { src: './04G.png', description: 'Isso que chamo de manobra radical.' },
+  { src: './04H.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
  
 ];
 
