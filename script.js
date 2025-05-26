@@ -48,14 +48,14 @@ const additionalModalImagesForThirdIllustration = [
 ];
 
 const additionalModalImagesForFourthIllustration = [
-  { src: './04A.png', description: 'O menino brincava com o seu cãozinho.' },
-  { src: './04B.png', description: 'O menino correu daquele touro feroz.' },
-  { src: './04C.png', description: 'Ele abraçou sua mãezinha feliz.' },
-  { src: './04D.png', description: 'Isso que chamo de manobra radical.' },
-  { src: './04E.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
-  { src: './04F.png', description: 'Ele abraçou sua mãezinha feliz.' },
-  { src: './04G.png', description: 'Isso que chamo de manobra radical.' },
-  { src: './04H.png', description: 'Ele não tinha dinheiro para comprar picolé.' },
+  { src: './04A.png', description: 'Menina empinando pipa com o seu cãozinho.' },
+  { src: './04B.png', description: 'O menino conversava com o sirizinho.' },
+  { src: './04C.png', description: 'Ela abraçava seu gatinho chato.' },
+  { src: './04D.png', description: 'O feirante vendia muito naquele dia.' },
+  { src: './04E.png', description: 'Ele corria em volta da fazendinha.' },
+  { src: './04F.png', description: 'Eles estavam com medo de cair da bike.' },
+  { src: './04G.png', description: 'Ele se vestia de super-herói e fazia o bem.' },
+  { src: './04H.png', description: 'Eles passavam o dia juntos lendo livro.' },
  
 ];
 
