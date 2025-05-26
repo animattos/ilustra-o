@@ -441,7 +441,7 @@ function openModal(baseIndex) {
     currentModalImages.push(...additionalModalImagesForThirdIllustration);
 } else if (baseIndex === 3) {
     currentModalImages.push(...additionalModalImagesForFourthIllustration);
-} 
+} else if (baseIndex === 4) {
     currentModalImages.push(...additionalModalImagesForFifthIllustration);
 } 
 
