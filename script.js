@@ -80,9 +80,6 @@ const additionalModalImagesForSixthIllustration = [
   { src: './06E.png', description: 'Ele corria em volta da fazendinha.' },
   { src: './06F.png', description: 'Eles estavam com medo de cair da bike.' },
   { src: './06G.png', description: 'Ele se vestia de super-herói e fazia o bem.' },
-  { src: './06H.png', description: 'Eles passavam o dia juntos lendo livro.' },
-  { src: './06I.png', description: 'Eles passavam o dia juntos lendo livro.' },
-  { src: './06J.png', description: 'Eles passavam o dia juntos lendo livro.' },  
  
 ];
 
