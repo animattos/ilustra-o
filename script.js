@@ -73,13 +73,13 @@ const additionalModalImagesForFifthIllustration = [
 ];
 
 const additionalModalImagesForSixthIllustration = [
-  { src: './06A.png', description: 'Jesus afastava o perigo salvando sua ovelha.' },
-  { src: './06B.png', description: 'O menino se divertia com o seu papai.' },
-  { src: './06C.png', description: 'Ele finalmente chegou ao topo.' },
-  { src: './06D.png', description: 'Ela se despedia de seu filho.' },
-  { src: './06E.png', description: 'Juca gostava de trepar em árvores.' },
-  { src: './06F.png', description: 'O rei se assustou com o dragão.' },
-  { src: './06G.png', description: 'Ele se vestia de super-herói e fazia o bem.' },
+  { src: './06A.png', description: 'O cozinheiro dava um show na cozinha.' },
+  { src: './06B.png', description: 'O menino arqueiro estava treinando.' },
+  { src: './06C.png', description: 'Ele brincava com a sua tartaruguinha.' },
+  { src: './06D.png', description: 'Era noite de lua cheia.' },
+  { src: './06E.png', description: 'Juca tinha muita imaginação.' },
+  { src: './06F.png', description: 'Ela comprou um sorvete.' },
+  { src: './06G.png', description: 'O urso regava as plantas todo dia.' },
  
 ];
 const additionalModalImagesForSeventhIllustration = [
