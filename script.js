@@ -168,7 +168,8 @@ const serviceInfoContent = {
     },
     'cover-design': {
         title: 'Sobre Design de Capa',
-        description: '• Composição e layout.\n• Organização harmônica dos elementos (título, subtítulo, nome do autor, selo editorial) respeitando hierarquias visuais e princípios de design como alinhamento, contraste e equilíbrio.'
+        description: ''<strong>• Composição e layout:</strong> Organização harmônica dos elementos (título, subtítulo, nome do autor, selo editorial) respeitando hierarquias visuais e princípios de design como alinhamento, contraste e equilíbrio.<br>' +
+               '<strong>• Tipografia:</strong> Escolha e aplicação de fontes adequadas à temática e ao público-alvo, considerando legibilidade, personalidade e estética.<br>' +'
     },
     'book-trailer': {
         title: 'Sobre Criação de Book Trailer',
