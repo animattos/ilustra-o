@@ -94,6 +94,9 @@ const additionalModalImagesForSeventhIllustration = [
   { src: './07I.png', description: 'O pescador conversava com a baleia' },
   { src: './07J.png', description: 'O gnomo da riqueza se distraia' }, 
   { src: './07L.png', description: 'O Jacaré que gostava de dançar' }, 
+  { src: './07M.png', description: 'Ele vivia distraído com o celular' },
+  { src: './07N.png', description: 'A menina fazia compras sozinha' }, 
+  { src: './07O.png', description: 'Juliete passava horas balançando' }, 
  
 ];
 const additionalModalImagesForEighthIllustration = [
