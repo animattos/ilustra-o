@@ -6,7 +6,7 @@ const baseIllustrations = [
     { src: './05.png', description: 'Ilustração voltada para infantojuvenil mais realista.', price: 85 },
     { src: './06.png', description: 'Ilustração aquarelada para estilo mais delicado.', price: 85 },
     { src: './07.png', description: 'Ilustração com contorno deixando mais atraente.', price: 85 },
-    { src: './08.png', description: 'ustração estilo vetorial limpo e smais sólido.', price: 85 },
+    { src: './08.png', description: 'ustração estilo vetorial limpo e mais sólido.', price: 85 },
 ];
 
 const additionalModalImagesForFirstIllustration = [
