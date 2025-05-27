@@ -164,8 +164,18 @@ const serviceInfoContent = {
         description: 'Este serviço inclui a organização e formatação do texto (quando fornecido) e a sua correta integração com as ilustrações dentro de um layout específico, garantindo que texto e imagem se complementem de forma harmoniosa na página.'
     },
     'cover-design': {
-        title: 'Sobre Ilustração de Design de Capa',
-        description: 'Uma ilustração de capa é uma peça visual única e impactante, criada especificamente para o design frontal de um livro, e-book ou material promocional. Seu objetivo principal é atrair o leitor e transmitir a essência da obra, podendo ter um estilo ou complexidade diferente das ilustrações internas.'
+        title: 'SOBRE DESIGN DE CAPA',
+        description: 'Composição e Layout:
+Organização harmônica dos elementos (título, subtítulo, nome do autor, selo editorial) respeitando hierarquias visuais e princípios de design como alinhamento, contraste e equilíbrio.
+
+Tipografia:
+Escolha e aplicação de fontes adequadas à temática e ao público-alvo, considerando legibilidade, personalidade e estética.
+
+Tratamento de Imagem:
+Edição e ajuste de fotos, texturas ou imagens fornecidas (correção de cor, recorte, aplicação de filtros ou efeitos) para adequação ao conceito da capa.
+
+Identidade Visual:
+Definição de paleta de cores, estilos gráficos e padrões que transmitam a essência do conteúdo, alinhando com tendências de mercado e expectativas do público.'
     },
     'book-trailer': {
         title: 'Sobre Criação de Book Trailer',
