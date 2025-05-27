@@ -763,3 +763,74 @@ copyPixKeyButton.addEventListener('click', () => {
 // Initial population and calculation display
 populateGallery();
 updateCalculationDisplay();
+
+
+
+
+
+// --- INÍCIO DA ADIÇÃO DO SERVICE INFO MODAL --- //
+
+// Elementos do modal de informações do serviço
+const serviceInfoModal = document.getElementById('service-info-modal');
+const serviceInfoCloseButton = document.querySelector('.service-info-close-button');
+const serviceInfoTitle = document.getElementById('service-info-title');
+const serviceInfoContentDiv = document.getElementById('service-info-content');
+const infoIcons = document.querySelectorAll('#additional-options .info-icon');
+
+// Elementos para vídeo do modal
+const serviceVideoContainer = document.getElementById('service-video-container');
+const serviceVideoIframe = document.getElementById('service-video-iframe');
+
+// Função para abrir e popular o modal de informações
+function openServiceInfoModal(serviceType) {
+    const serviceInfo = serviceInfoContent[serviceType];
+
+    // Oculta e limpa o vídeo inicialmente
+    serviceVideoContainer.style.display = 'none';
+    serviceVideoIframe.src = '';
+
+    if (serviceInfo) {
+        serviceInfoTitle.textContent = serviceInfo.title;
+        serviceInfoContentDiv.innerHTML = `<p>${serviceInfo.description}</p>`;
+
+        // Se houver vídeo, exibe
+        if (serviceInfo.videoUrl) {
+            serviceVideoContainer.style.display = 'block';
+            serviceVideoIframe.src = serviceInfo.videoUrl;
+        }
+
+        serviceInfoModal.classList.add('active');
+    } else {
+        console.error("Service info não encontrada para o tipo:", serviceType);
+    }
+}
+
+// Função para fechar o modal de informações
+function closeServiceInfoModal() {
+    serviceInfoModal.classList.remove('active');
+    serviceVideoIframe.src = '';
+    serviceVideoContainer.style.display = 'none';
+    serviceInfoTitle.textContent = '';
+    serviceInfoContentDiv.innerHTML = '';
+}
+
+// Event listener para os ícones de informação
+infoIcons.forEach(icon => {
+    icon.addEventListener('click', () => {
+        const serviceType = icon.dataset.service;
+        openServiceInfoModal(serviceType);
+    });
+});
+
+// Event listener para o botão de fechar do modal
+serviceInfoCloseButton.addEventListener('click', closeServiceInfoModal);
+
+// Ajuste do window click para fechar este modal também
+window.addEventListener('click', (event) => {
+    if (event.target === serviceInfoModal) {
+        closeServiceInfoModal();
+    }
+});
+
+// --- FIM DA ADIÇÃO DO SERVICE INFO MODAL --- //
+
