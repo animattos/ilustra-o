@@ -73,27 +73,27 @@ const additionalModalImagesForFifthIllustration = [
 ];
 
 const additionalModalImagesForSixthIllustration = [
-  { src: './06A.png', description: 'Menina empinando pipa com o seu cãozinho.' },
-  { src: './06B.png', description: 'O menino conversava com o sirizinho.' },
-  { src: './06C.png', description: 'Ela abraçava seu gatinho chato.' },
-  { src: './06D.png', description: 'O feirante vendia muito naquele dia.' },
-  { src: './06E.png', description: 'Ele corria em volta da fazendinha.' },
-  { src: './06F.png', description: 'Eles estavam com medo de cair da bike.' },
+  { src: './06A.png', description: 'Jesus afastava o perigo salvando sua ovelha.' },
+  { src: './06B.png', description: 'O menino se divertia com o seu papai.' },
+  { src: './06C.png', description: 'Ele finalmente chegou ao topo.' },
+  { src: './06D.png', description: 'Ela se despedia de seu filho.' },
+  { src: './06E.png', description: 'Juca gostava de trepar em árvores.' },
+  { src: './06F.png', description: 'O rei se assustou com o dragão.' },
   { src: './06G.png', description: 'Ele se vestia de super-herói e fazia o bem.' },
  
 ];
 const additionalModalImagesForSeventhIllustration = [
-  { src: './07A.png', description: 'Jovem andava de skate pelas vias perigozamente.' },
-  { src: './07B.png', description: 'O carteiro foi atacado pelos cães.' },
-  { src: './07C.png', description: 'Ele pedia esmolas para sobreviver.' },
-  { src: './07D.png', description: 'O dinossauro atacou o seu carro.' },
-  { src: './07E.png', description: 'Ele ia todas manhãs pescar no lago.' },
-  { src: './07F.png', description: 'Ela chorava sempre que se lembrava disso.' },
-  { src: './07G.png', description: 'Os zumbis o atacaram em bando.' },
-  { src: './07H.png', description: 'Joãozinho foi visto pelo gigante.' },
-  { src: './07I.png', description: 'Tudo parecia enorme diante dele.' },
-  { src: './07J.png', description: 'Ele tinha asas e podia voar.' }, 
-  { src: './07L.png', description: 'Ele tinha asas e podia voar.' }, 
+  { src: './07A.png', description: 'Jesus afastava o perigo salvando sua ovelha.' },
+  { src: './07B.png', description: 'O menino se divertia com o seu papai.' },
+  { src: './07C.png', description: 'Ele finalmente chegou ao topo.' },
+  { src: './07D.png', description: 'Ela se despedia de seu filho.' },
+  { src: './07E.png', description: 'Juca gostava de trepar em árvores.' },
+  { src: './07F.png', description: 'O rei se assustou com o dragão.' },
+  { src: './07G.png', description: 'Eles gostavam de caminhar pela rua.' },
+  { src: './07H.png', description: 'Joãozinho ficava sempre no celular' },
+  { src: './07I.png', description: 'O pescador conversava com a baleia' },
+  { src: './07J.png', description: 'O gnomo da riqueza se distraia' }, 
+  { src: './07L.png', description: 'O Jacaré que gostava de dançar' }, 
  
 ];
 const additionalModalImagesForEighthIllustration = [
