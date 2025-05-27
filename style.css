@@ -16,7 +16,15 @@ header {
     padding: 0 10px; 
     box-sizing: border-box;
     width: 100%;
+    gap: 15px; 
 }
+
+.header-logo {
+    height: 50px; 
+    flex-shrink: 0;
+    display: block; 
+}
+
 
 h1 {
     color: #333;
@@ -342,7 +350,7 @@ h1 {
     border-radius: 6px;
     background-color: #fefefe;
     transition: background-color 0.2s ease, border-color 0.2s ease;
-    cursor: default; /* Cursor pointer on the whole div for checkbox toggle */
+    cursor: default; 
 }
 
 #additional-options div label,
@@ -350,7 +358,7 @@ h1 {
     font-weight: normal;
     color: #333;
     flex-grow: 1;
-    cursor: pointer; /* Cursor pointer on the label for checkbox toggle */
+    cursor: pointer; 
     padding-left: 10px;
 }
 
