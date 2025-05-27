@@ -147,9 +147,9 @@ const howItWorksModal = document.getElementById('how-it-works-modal');
 const howItWorksCloseButton = document.querySelector('.how-it-works-close-button');
 const howItWorksContent = document.getElementById('how-it-works-content'); 
 
-const TEXT_LAYOUT_PRICE_PER_ILLUSTRATION = 30;
+const TEXT_LAYOUT_PRICE_PER_ILLUSTRATION = 180;
 const COVER_DESIGN_PRICE = 250;
-const BOOK_TRAILER_PRICE = 2500;
+const BOOK_TRAILER_PRICE = 280;
 
 const DISPLAY_QUANTITY = 8;
 
