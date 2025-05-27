@@ -176,7 +176,7 @@ const serviceInfoContent = {
     'book-trailer': {
         title: 'Sobre Book Trailer',
         description: 'A criação de um book trailer envolve a produção de um pequeno vídeo promocional para o seu livro. Inclui a seleção ou criação de artes (estáticas ou animadas), edição de vídeo, adição de música e, se necessário, locução ou efeitos sonoros para gerar interesse e expectativa.',
-        videoUrl: 'https://www.youtube.com/watch?v=yg9Ds6rh6iE'
+        videoUrl: 'https://www.youtube.com/embed/yg9Ds6rh6iE?si=az-yBD4OjGMcxe8B'
     }
 };
 
