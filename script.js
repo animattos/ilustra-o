@@ -165,7 +165,7 @@ const serviceInfoContent = {
     },
     'cover-design': {
         title: 'Sobre Design de Capa',
-        description: 'Este serviço inclui a organização.'
+        description: 'Organização harmônica dos elementos (título, subtítulo, nome do autor, selo editorial) respeitando hierarquias visuais e princípios de design como alinhamento, contraste e equilíbrio.'
     },
     'book-trailer': {
         title: 'Sobre Criação de Book Trailer',
