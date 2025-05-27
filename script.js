@@ -1,12 +1,12 @@
 const baseIllustrations = [
-    { src: './01.png', description: 'Esboço a lápis com linhas feitas à mão simulando grafite.', price: 55 },
-    { src: './02.png', description: ' Ilustração com contornos limpos, expressivos e bem definidos.', price: 65 },
+    { src: './01.png', description: 'Esboço a lápis com linhas feitas à mão simulando grafite.', price: 85 },
+    { src: './02.png', description: ' Ilustração com contornos limpos, expressivos e bem definidos.', price: 85 },
     { src: './03.png', description: 'Ilustração digital colorida com textura manual imitando pinceladas.', price: 85 },
-    { src: './04.png', description: 'Ilustração estilo 3D mais infantil e acabamento limpo.', price: 90 },
-    { src: './05.png', description: 'Ilustração voltada para infantojuvenil mais realista.', price: 70 },
-    { src: './06.png', description: 'Ilustração aquarelada para estilo mais delicado.', price: 150 },
-    { src: './07.png', description: 'Ilustração com contorno deixando mais atraente.', price: 110 },
-    { src: './08.png', description: 'ustração estilo vetorial limpo e smais sólido.', price: 180 },
+    { src: './04.png', description: 'Ilustração estilo 3D mais infantil e acabamento limpo.', price: 85 },
+    { src: './05.png', description: 'Ilustração voltada para infantojuvenil mais realista.', price: 85 },
+    { src: './06.png', description: 'Ilustração aquarelada para estilo mais delicado.', price: 85 },
+    { src: './07.png', description: 'Ilustração com contorno deixando mais atraente.', price: 85 },
+    { src: './08.png', description: 'ustração estilo vetorial limpo e smais sólido.', price: 85 },
 ];
 
 const additionalModalImagesForFirstIllustration = [
