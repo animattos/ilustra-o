@@ -92,7 +92,8 @@ const additionalModalImagesForSeventhIllustration = [
   { src: './07G.png', description: 'Os zumbis o atacaram em bando.' },
   { src: './07H.png', description: 'Joãozinho foi visto pelo gigante.' },
   { src: './07I.png', description: 'Tudo parecia enorme diante dele.' },
-  { src: './07J.png', description: 'Ele tinha asas e podia voar.' },  
+  { src: './07J.png', description: 'Ele tinha asas e podia voar.' }, 
+  { src: './07L.png', description: 'Ele tinha asas e podia voar.' }, 
  
 ];
 
