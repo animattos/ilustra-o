@@ -6,7 +6,7 @@ const baseIllustrations = [
     { src: './05.png', description: 'Ilustração voltada para infantojuvenil mais realista.', price: 70 },
     { src: './06.png', description: 'Ilustração aquarelada para estilo mais delicado.', price: 150 },
     { src: './07.png', description: 'Ilustração com contorno deixando mais atraente.', price: 110 },
-    { src: './08.png', description: 'Renderização 3D estilizada de Deby Musa sorrindo.', price: 180 },
+    { src: './08.png', description: 'ustração estilo vetorial limpo e smais sólido.', price: 180 },
 ];
 
 const additionalModalImagesForFirstIllustration = [
@@ -97,17 +97,17 @@ const additionalModalImagesForSeventhIllustration = [
  
 ];
 const additionalModalImagesForEighthIllustration = [
-  { src: './08A.png', description: 'Jovem andava de skate pelas vias perigozamente.' },
-  { src: './08B.png', description: 'O carteiro foi atacado pelos cães.' },
-  { src: './08C.png', description: 'Ele pedia esmolas para sobreviver.' },
-  { src: './08D.png', description: 'O dinossauro atacou o seu carro.' },
-  { src: './08E.png', description: 'Ele ia todas manhãs pescar no lago.' },
-  { src: './08F.png', description: 'Ela chorava sempre que se lembrava disso.' },
-  { src: './08G.png', description: 'Os zumbis o atacaram em bando.' },
-  { src: './08H.png', description: 'Joãozinho foi visto pelo gigante.' },
-  { src: './08I.png', description: 'Tudo parecia enorme diante dele.' },
-  { src: './08J.png', description: 'Ele tinha asas e podia voar.' }, 
-  { src: './08L.png', description: 'Ele tinha asas e podia voar.' }, 
+  { src: './08A.png', description: 'Ela percebeu que estava sendo seguida.' },
+  { src: './08B.png', description: 'O pirata alegre e que gostava de dançar.' },
+  { src: './08C.png', description: 'A princesa beijou o dapo gosmento.' },
+  { src: './08D.png', description: 'A rainha da selva em ação.' },
+  { src: './08E.png', description: 'O leão demonstrando bravura.' },
+  { src: './08F.png', description: 'Ele tentava conquistá-la sempre.' },
+  { src: './08G.png', description: 'O barão queria pagar a sua conta.' },
+  { src: './08H.png', description: 'A sua fantasia ficou linda.' },
+  { src: './08I.png', description: 'Esse bebê gostava de livros.' },
+  { src: './08J.png', description: 'E jesus apareceu sobre as águas.' }, 
+  { src: './08L.png', description: 'Ela gostava de cozinhar o dia todo.' }, 
  
 ];
 
