@@ -320,7 +320,7 @@ function createGalleryItem(illustration, index) {
     checkbox.checked = false; 
     const label = document.createElement('label');
     label.htmlFor = `illustration-${index}`;
-    label.textContent = `Incluir (${index + 1})`; 
+    label.innerHTML = 'Incluir <span style="display:none;">(' + (index + 1) + ')</span>';
 
     checkboxContainer.appendChild(checkbox);
     checkboxContainer.appendChild(label);
