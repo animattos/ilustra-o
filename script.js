@@ -175,8 +175,7 @@ const serviceInfoContent = {
 };
 
 
-
-
+// --- TROCAR AQUI PRA BAIXO ---
 
 
 // --- Provided Pix generation script ---
@@ -495,6 +494,14 @@ function openModal(baseIndex) {
 
     currentModalImages = [];
 
+    
+    
+    
+    // --- TROCAR AQUI PRA CIMA ---
+    
+    
+    
+    
     // Always include the base illustration as the first item
     currentModalImages.push({ src: baseIllustration.src, baseIndex: baseIndex, description: baseIllustration.description });
 
