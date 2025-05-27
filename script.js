@@ -165,7 +165,7 @@ const serviceInfoContent = {
     },
     'cover-design': {
         title: 'Sobre Design de Capa',
-        description: ''
+        description: 'Este serviço inclui a organização.'
     },
     'book-trailer': {
         title: 'Sobre Criação de Book Trailer',
