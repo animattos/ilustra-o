@@ -164,15 +164,17 @@ let currentModalImages = [];
 const serviceInfoContent = {
     'text-layout': {
         title: 'Sobre Texto e Diagramação',
-        description: 'Este serviço inclui a organização e formatação do texto (quando fornecido) e a sua correta integração com as ilustrações dentro de um layout específico, garantindo que texto e imagem se complementem de forma harmoniosa na página.'
+        description: 'Este serviço inclui a organização e formatação do texto (quando fornecido) e a sua correta integração com as ilustrações dentro de um layout específico, garantindo que texto e imagem se complementem de forma harmoniosa na página. Até 100 páginas.'
     },
     'cover-design': {
         title: 'Sobre Design de Capa',
-        description: '<strong>• Paleta de cores:</strong> Definição de esquema cromático.<br>' +
-               '<strong>• Pré-impressão:</strong> Preparação de arquivos finais.'
+        description: '<strong>• Composição e Layout:</strong> Organização harmônica dos elementos (título, subtítulo, nome do autor, selo editorial) respeitando hierarquias visuais e princípios de design como alinhamento, contraste e equilíbrio.<br>' +
+               '<strong>• Tipografia:</strong> Escolha e aplicação de fontes adequadas à temática e ao público-alvo, considerando legibilidade, personalidade e estética.<br>' +
+        '<strong>• Tratamento de Imagem:</strong> Edição e ajuste de fotos, texturas ou imagens fornecidas (correção de cor, recorte, aplicação de filtros ou efeitos) para adequação ao conceito da capa.<br>' +
+             '<strong>• Identidade Visual:</strong> Definição de paleta de cores, estilos gráficos e padrões que transmitam a essência do conteúdo, alinhando com tendências de mercado e expectativas do público.'
     },
     'book-trailer': {
-        title: 'Sobre Criação de Book Trailer',
+        title: 'Sobre Book Trailer',
         description: 'A criação de um book trailer envolve a produção de um pequeno vídeo promocional para o seu livro. Inclui a seleção ou criação de artes (estáticas ou animadas), edição de vídeo, adição de música e, se necessário, locução ou efeitos sonoros para gerar interesse e expectativa.',
         videoUrl: 'https://www.youtube.com/watch?v=yg9Ds6rh6iE'
     }
