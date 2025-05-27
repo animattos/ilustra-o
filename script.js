@@ -175,7 +175,7 @@ const serviceInfoContent = {
 };
 
 
-// --- TROCAR AQUI PRA BAIXO ---
+
 
 
 // --- Provided Pix generation script ---
@@ -276,6 +276,12 @@ function generatePixData(valor, selectedDetails) {
 
   return pixCode;
 }
+
+
+// --- TROCAR AQUI PRA BAIXO ---
+
+
+
 // --- End of provided Pix generation script ---
 
 
