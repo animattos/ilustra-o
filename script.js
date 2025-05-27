@@ -156,6 +156,29 @@ const DISPLAY_QUANTITY = 8;
 let currentModalIndex = 0;
 let currentModalImages = [];
 
+
+// Define content for service info popups
+const serviceInfoContent = {
+    'text-layout': {
+        title: 'Sobre Texto e Diagramação',
+        description: 'Este serviço inclui a organização e formatação do texto (quando fornecido) e a sua correta integração com as ilustrações dentro de um layout específico, garantindo que texto e imagem se complementem de forma harmoniosa na página.'
+    },
+    'cover-design': {
+        title: 'Sobre Ilustração de Design de Capa',
+        description: 'Uma ilustração de capa é uma peça visual única e impactante, criada especificamente para o design frontal de um livro, e-book ou material promocional. Seu objetivo principal é atrair o leitor e transmitir a essência da obra, podendo ter um estilo ou complexidade diferente das ilustrações internas.'
+    },
+    'book-trailer': {
+        title: 'Sobre Criação de Book Trailer',
+        description: 'A criação de um book trailer envolve a produção de um pequeno vídeo promocional para o seu livro. Inclui a seleção ou criação de artes (estáticas ou animadas), edição de vídeo, adição de música e, se necessário, locução ou efeitos sonoros para gerar interesse e expectativa.',
+        videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0'
+    }
+};
+
+
+
+
+
+
 // --- Provided Pix generation script ---
 // Updated with user's information
 const chavePix = "estudioanimattos@gmail.com";
