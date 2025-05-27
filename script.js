@@ -164,7 +164,7 @@ const serviceInfoContent = {
         description: 'Este serviço inclui a organização e formatação do texto (quando fornecido) e a sua correta integração com as ilustrações dentro de um layout específico, garantindo que texto e imagem se complementem de forma harmoniosa na página.'
     },
     'cover-design': {
-        title: 'SOBRE DESIGN DE CAPA',
+        title: 'Sobre Design de Capa',
         description: ''
     },
     'book-trailer': {
