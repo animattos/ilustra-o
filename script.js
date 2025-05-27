@@ -168,7 +168,8 @@ const serviceInfoContent = {
     },
     'cover-design': {
         title: 'Sobre Design de Capa',
-        description: ''
+        description: '<strong>• Paleta de cores:</strong> Definição de esquema cromático.<br>' +
+               '<strong>• Pré-impressão:</strong> Preparação de arquivos finais.'
     },
     'book-trailer': {
         title: 'Sobre Criação de Book Trailer',
