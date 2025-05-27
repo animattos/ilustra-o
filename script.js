@@ -96,6 +96,20 @@ const additionalModalImagesForSeventhIllustration = [
   { src: './07L.png', description: 'Ele tinha asas e podia voar.' }, 
  
 ];
+const additionalModalImagesForEighthIllustration = [
+  { src: './08A.png', description: 'Jovem andava de skate pelas vias perigozamente.' },
+  { src: './08B.png', description: 'O carteiro foi atacado pelos cães.' },
+  { src: './08C.png', description: 'Ele pedia esmolas para sobreviver.' },
+  { src: './08D.png', description: 'O dinossauro atacou o seu carro.' },
+  { src: './08E.png', description: 'Ele ia todas manhãs pescar no lago.' },
+  { src: './08F.png', description: 'Ela chorava sempre que se lembrava disso.' },
+  { src: './08G.png', description: 'Os zumbis o atacaram em bando.' },
+  { src: './08H.png', description: 'Joãozinho foi visto pelo gigante.' },
+  { src: './08I.png', description: 'Tudo parecia enorme diante dele.' },
+  { src: './08J.png', description: 'Ele tinha asas e podia voar.' }, 
+  { src: './08L.png', description: 'Ele tinha asas e podia voar.' }, 
+ 
+];
 
 
 
@@ -478,6 +492,9 @@ function openModal(baseIndex) {
 
 } else if (baseIndex === 6) {
     currentModalImages.push(...additionalModalImagesForSeventhIllustration); 
+
+} else if (baseIndex === 7) {
+    currentModalImages.push(...additionalModalImagesForEighthIllustration); 
 
 }
   
