@@ -124,6 +124,22 @@
     </div>
 
 
+   <!-- New Service Info Modal -->
+    <div id="service-info-modal" class="modal service-info-modal">
+        <div class="modal-content service-info-modal-content">
+            <span class="close-button service-info-close-button">&times;</span>
+            <h2 id="service-info-title"></h2>
+            <div id="service-info-content">
+                <p></p>
+            </div>
+            <!-- Container for the video example -->
+            <div id="service-video-container" style="display: none;">
+                <iframe id="service-video-iframe" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Load qrcodejs globally before the main script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script type="module" src="script.js"></script>
