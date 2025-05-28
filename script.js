@@ -97,6 +97,15 @@ const additionalModalImagesForSeventhIllustration = [
   { src: './07M.png', description: 'Ele vivia distraído com o celular' },
   { src: './07N.png', description: 'A menina fazia compras sozinha' }, 
   { src: './07O.png', description: 'Juliete passava horas balançando' }, 
+    { src: './07P.png', description: 'O rei se assustou com o dragão.' },
+  { src: './07Q.png', description: 'Eles gostavam de caminhar pela rua.' },
+  { src: './07R.png', description: 'Joãozinho ficava sempre no celular' },
+  { src: './07S.png', description: 'O pescador conversava com a baleia' },
+  { src: './07T.png', description: 'O gnomo da riqueza se distraia' }, 
+  { src: './07U.png', description: 'O Jacaré que gostava de dançar' }, 
+  { src: './07V.png', description: 'Ele vivia distraído com o celular' },
+  { src: './07X.png', description: 'A menina fazia compras sozinha' }, 
+  { src: './07Z.png', description: 'Juliete passava horas balançando' }, 
  
 ];
 const additionalModalImagesForEighthIllustration = [
