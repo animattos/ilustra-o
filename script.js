@@ -642,7 +642,7 @@ quantitySlider.addEventListener('input', updateCalculationDisplay);
 optionTextLayout.addEventListener('change', updateCalculationDisplay);
 optionCoverDesign.addEventListener('change', updateCalculationDisplay);
 optionBookTrailer.addEventListener('change', updateCalculationDisplay);
-
+optionTranslation.addEventListener('change', updateCalculationDisplay);
 // Ensure only one payment option can be selected
 optionCashDiscount.addEventListener('change', function() {
     if (this.checked) {
