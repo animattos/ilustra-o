@@ -162,7 +162,8 @@ const howItWorksContent = document.getElementById('how-it-works-content');
 const TEXT_LAYOUT_PRICE_PER_ILLUSTRATION = 15;
 const COVER_DESIGN_PRICE = 250;
 const BOOK_TRAILER_PRICE = 280;
-
+const optionTranslation = document.getElementById('option-translation');
+const TRANSLATION_PRICE_PER_PAGE = 35;
 const DISPLAY_QUANTITY = 8;
 
 let currentModalIndex = 0;
@@ -432,6 +433,15 @@ function updateCalculationDisplay() {
     if (optionBookTrailer.checked) {
         baseTotal += BOOK_TRAILER_PRICE;
         additionalServicesList.push('Criação de book trailer');
+    }
+    if (optionTranslation && optionTranslation.checked) {
+    baseTotal += quantity * TRANSLATION_PRICE_PER_PAGE;
+    additionalServicesList.push('Tradução para outras línguas');
+
+    if (optionCoverDesign && optionCoverDesign.checked) {
+        baseTotal += TRANSLATION_PRICE_PER_PAGE;
+        additionalServicesList.push('Tradução da capa');
+    }
     }
 
     let finalPrice = baseTotal;
