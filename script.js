@@ -189,7 +189,10 @@ const serviceInfoContent = {
         videoUrl: 'https://www.youtube.com/embed/yg9Ds6rh6iE?si=az-yBD4OjGMcxe8B'
     }
 };
-
+'translation': {
+    title: 'Sobre Tradução para outras línguas',
+    description: 'Tradução por página com base nas ilustrações. Se design de capa for selecionado, será traduzida também.'
+}
 
 
 
