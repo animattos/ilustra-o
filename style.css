@@ -629,3 +629,37 @@ h1 {
     width: 100%;
     height: 100%;
 }
+#additional-options div {
+    justify-content: space-between;
+    cursor: default;
+}
+
+#additional-options div input[type="checkbox"],
+#additional-options div label {
+    cursor: pointer;
+}
+
+#additional-options div .info-icon {
+    cursor: help;
+}
+
+#additional-options input[type="checkbox"]:checked + label {
+    color: #007bff;
+    font-weight: bold;
+}
+
+#additional-options div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 0;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    transition: background-color 0.2s ease;
+}
+
+#additional-options div:hover {
+    background-color: #f1f1f1;
+}
