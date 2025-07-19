@@ -173,7 +173,7 @@ let currentModalImages = [];
 const serviceInfoContent = {
     'text-layout': {
         title: 'Sobre Texto e Diagramação',
-        description: 'Este serviço inclui a organização e formatação do texto (quando fornecido) e a sua correta integração com as ilustrações dentro de um layout específico, garantindo que texto e imagem se complementem de forma harmoniosa na página. Até 100 páginas.'
+        description: 'Este serviço inclui a organização e formatação do texto (quando fornecido) e a sua correta integração com as ilustrações dentro de um layout específico, garantindo que texto e imagem se complementem de forma harmoniosa na página (valor por página).'
     },
     'cover-design': {
         title: 'Sobre Design de Capa',
