@@ -461,7 +461,14 @@ function updateCalculationDisplay() {
         finalPrice = baseTotal; // No discount or split
     }
 
-     totalPriceSpan.textContent = `R$ ${finalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+     // Altera o rótulo conforme a forma de pagamento
+const priceLabel = document.querySelector('#price-display');
+if (optionFiftyFifty.checked) {
+    priceLabel.innerHTML = `Entrada: <span id="total-price">R$ ${finalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>`;
+} else {
+    priceLabel.innerHTML = `Preço Total: <span id="total-price">R$ ${finalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>`;
+}
+
 
      // Return details for QR modal message
      return {
