@@ -1,79 +1,104 @@
-
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ilustração para Livro</title>
+    <title>Portfólio de Ilustrações</title>
     <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "script": "./script.js"
+                
+            }
+        }
+    </script>
 </head>
 <body>
 
-<header>
-    <img src="./logo.png" alt="Logo" class="header-logo">
-    <h1>Ilustração para Livro</h1>
-    <button id="how-it-works-button" class="how-it-works-button">Como Funciona</button>
-</header>
+    <h1>Minhas Ilustrações</h1>
 
-<div id="gallery">
-    <!-- Ilustrações serão carregadas aqui pelo JavaScript -->
-</div>
+    <div id="gallery">
+        <!-- Ilustrações serão carregadas aqui pelo JavaScript -->
+    </div>
 
-<div id="controls">
-    <div class="control-group">
-        <label for="quantity-slider">Quantidade de Ilustrações:</label>
-        <div id="quantity-control">
-            <input type="range" id="quantity-slider" min="1" max="100" value="1">
-            <span id="current-quantity">1</span>
+    <div id="controls">
+        <div class="control-group">
+            <label for="quantity-slider">Quantidade de Ilustrações:</label>
+            <div id="quantity-control">
+                <input type="range" id="quantity-slider" min="1" max="100" value="1">
+                <span id="current-quantity">1</span>
+            </div>
+        </div>
+
+        <div id="additional-options" class="control-group">
+            <p>Serviços Adicionais:</p>
+            <div>
+                <input type="checkbox" id="option-text-layout">
+                <label for="option-text-layout">Texto e diagramação (R$ 30,00 / ilustração)</label>
+            </div>
+            <div>
+                <input type="checkbox" id="option-cover-design">
+                <label for="option-cover-design">Ilustração de design de capa (R$ 250,00)</label>
+            </div>
+            <div>
+                <input type="checkbox" id="option-book-trailer">
+                <label for="option-book-trailer">Criação de book trailer (R$ 2500,00)</label>
+            </div>
+            <div>
+                <input type="checkbox" id="option-translation">
+                <label for="option-translation">Tradução para outras línguas (R$ 35,00 / ilustração)</label>
+            </div>
+            <div>
+                <input type="checkbox" id="option-attractive-text">
+                <label for="option-attractive-text">Deixar texto mais atraente (R$ 350,00)</label>
+            </div>
+        </div>
+
+        <div id="payment-options" class="control-group">
+            <p class="highlight">Opções de Pagamento:</p>
+            <div class="payment-option">
+                <input type="checkbox" id="option-cash-discount" name="payment-option">
+                <label for="option-cash-discount">Á vista (10% de desconto)</label>
+            </div>
+            <div class="payment-option">
+                <input type="checkbox" id="option-fifty-fifty" name="payment-option">
+                <label for="option-fifty-fifty">50% para iniciar, 50% na entrega</label>
+            </div>
+        </div>
+
+        <div id="price-display" class="control-group">
+            <span id="price-label">Preço Total:</span> <span id="total-price">R$ 0,00</span>
+        </div>
+
+        <button id="generate-qrcode-button" class="generate-qrcode-button">Gerar QRCODE de pagamento</button>
+
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-gallery-container">
+                <button id="prev-button" class="modal-nav-button">&lt;</button>
+                <img id="modal-image" src="" alt="Ilustração ampliada">
+                <button id="next-button" class="modal-nav-button">&gt;</button>
+            </div>
+            <p id="modal-description"></p>
         </div>
     </div>
 
-    <div id="additional-options" class="control-group">
-        <p>Serviços Adicionais:</p>
-        <div>
-            <input type="checkbox" id="option-text-layout">
-            <label for="option-text-layout">Texto e diagramação (R$ 15,00)</label>
-            <span class="info-icon" data-service="text-layout" title="Mais informações sobre este serviço">...</span>
-        </div>
-        <div>
-            <input type="checkbox" id="option-cover-design">
-            <label for="option-cover-design">Design de capa (R$ 250,00)</label>
-            <span class="info-icon" data-service="cover-design" title="Mais informações sobre este serviço">...</span>
-        </div>
-        <div>
-            <input type="checkbox" id="option-book-trailer">
-            <label for="option-book-trailer">Criar book trailer (R$ 280,00)</label>
-            <span class="info-icon" data-service="book-trailer" title="Mais informações sobre este serviço">...</span>
-        </div>
-        <div>
-            <input type="checkbox" id="option-translation">
-            <label for="option-translation">Tradução para outras línguas (R$ 35,00)</label>
-            <span class="info-icon" data-service="translation" title="Mais informações sobre este serviço">...</span>
+    <!-- New QR Code Modal -->
+    <div id="qr-modal" class="modal qr-modal">
+        <div class="modal-content qr-modal-content">
+            <span class="close-button qr-close-button">&times;</span>
+            <h2>QR Code para Pagamento</h2>
+            <div id="qrcode"></div>
+            <p id="qr-modal-message">Carregando detalhes do pagamento...</p>
         </div>
     </div>
 
-    <div id="payment-options" class="control-group">
-        <p class="highlight">Opções de Pagamento:</p>
-        <div class="payment-option">
-            <input type="checkbox" id="option-cash-discount" name="payment-option">
-            <label for="option-cash-discount">À vista (10% de desconto)</label>
-        </div>
-        <div class="payment-option">
-            <input type="checkbox" id="option-fifty-fifty" name="payment-option">
-            <label for="option-fifty-fifty">50% para iniciar, 50% na entrega</label>
-        </div>
-    </div>
-
-    <div id="price-display" class="control-group">
-        Preço Total: <span id="total-price">R$ 0,00</span>
-    </div>
-
-    <button id="generate-qrcode-button" class="generate-qrcode-button">Gerar QR Code de pagamento</button>
-</div>
-
-<!-- Modais e scripts seguem idênticos ao anterior -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script type="module" src="script.js"></script>
-
+    <!-- Load qrcodejs globally before the main script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
