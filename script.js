@@ -459,9 +459,33 @@ function openModal(baseIndex) {
 
     currentModalImages.push({ src: baseIllustration.src, baseIndex: baseIndex, description: baseIllustration.description });
 
-    if (baseIndex === 0) {
+   switch (baseIndex) {
+    case 0:
         currentModalImages.push(...additionalModalImagesForFirstIllustration);
-    }
+        break;
+    case 1:
+        currentModalImages.push(...additionalModalImagesForSecondIllustration);
+        break;
+    case 2:
+        currentModalImages.push(...additionalModalImagesForThirdIllustration);
+        break;
+    case 3:
+        currentModalImages.push(...additionalModalImagesForFourthIllustration);
+        break;
+    case 4:
+        currentModalImages.push(...additionalModalImagesForFifthIllustration);
+        break;
+    case 5:
+        currentModalImages.push(...additionalModalImagesForSixthIllustration);
+        break;
+    case 6:
+        currentModalImages.push(...additionalModalImagesForSeventhIllustration);
+        break;
+    case 7:
+        currentModalImages.push(...additionalModalImagesForEighthIllustration);
+        break;
+}
+
 
     currentModalIndex = 0;
     updateModalContent(0);
