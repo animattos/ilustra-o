@@ -153,7 +153,7 @@ const qrModalMessage = document.getElementById('qr-modal-message');
 
 const TEXT_LAYOUT_PRICE_PER_ILLUSTRATION = 30;
 const COVER_DESIGN_PRICE = 250;
-const BOOK_TRAILER_PRICE = 2500; 
+const BOOK_TRAILER_PRICE = 280; 
 const TRANSLATION_PRICE_PER_ILLUSTRATION = 35;
 const ATTRACTIVE_TEXT_PRICE = 350;
 
