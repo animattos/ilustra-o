@@ -589,14 +589,57 @@ generateQrcodeButton.addEventListener('click', () => {
                  paymentMethodInfo = '50% para iniciar, 50% na entrega (Valor parcial)';
             }
 
-            qrModalMessage.innerHTML = `Este QR Code contém os dados para um pagamento Pix estático (${paymentMethodInfo}):<br>
-             <strong>Nome:</strong> ${nomeRecebedor}<br>
-             <strong>Chave Pix:</strong> ${chavePix} (E-mail)<br>
-             <strong>Cidade:</strong> ${cidadeRecebedor}<br>
-             <strong>Valor:</strong> R$ ${totalAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<br><br>
-             Escaneie o QR Code para pagar via Pix.`; 
+            // Gather all selected information for display
+            let qrDetailsHtml = `
+                <p><strong>Detalhes da Compra:</strong></p>
+                <ul>
+            `;
 
+            const quantity = parseInt(quantitySlider.value, 10);
+            const selectedCheckbox = gallery.querySelector('.illustration-checkbox input[type="checkbox"]:checked');
+            let selectedIllustrationDescription = 'Nenhuma ilustração base selecionada';
 
+            if (selectedCheckbox) {
+                const itemDiv = selectedCheckbox.closest('.gallery-item');
+                const index = parseInt(itemDiv.dataset.index, 10);
+                if (index >= 0 && index < baseIllustrations.length) {
+                    selectedIllustrationDescription = `Ilustração ${String(index + 1).padStart(2, '0')}`;
+                }
+            }
+            qrDetailsHtml += `<li><strong>Estilo de Ilustração:</strong> ${selectedIllustrationDescription}</li>`;
+            qrDetailsHtml += `<li><strong>Quantidade de Ilustrações:</strong> ${quantity}</li>`;
+
+            const selectedAddOns = [];
+            if (optionTextLayout.checked) selectedAddOns.push(`Texto e diagramação (R$ ${TEXT_LAYOUT_PRICE_PER_ILLUSTRATION} / ilustração)`);
+            if (optionCoverDesign.checked) selectedAddOns.push(`Ilustração de design de capa (R$ ${COVER_DESIGN_PRICE})`);
+            if (optionBookTrailer.checked) selectedAddOns.push(`Criação de book trailer (R$ ${BOOK_TRAILER_PRICE})`);
+            if (optionTranslation.checked) selectedAddOns.push(`Tradução para outras línguas (R$ ${TRANSLATION_PRICE_PER_ILLUSTRATION} / ilustração)`);
+            if (optionAttractiveText.checked) selectedAddOns.push(`Deixar texto mais atraente (R$ ${ATTRACTIVE_TEXT_PRICE})`);
+
+            if (selectedAddOns.length > 0) {
+                qrDetailsHtml += `<li><strong>Serviços Adicionais:</strong><ul>`;
+                selectedAddOns.forEach(add => {
+                    qrDetailsHtml += `<li>- ${add}</li>`;
+                });
+                qrDetailsHtml += `</ul></li>`;
+            } else {
+                qrDetailsHtml += `<li><strong>Serviços Adicionais:</strong> Nenhum</li>`;
+            }
+
+            qrDetailsHtml += `
+                </ul>
+                <p><strong>Informações de Pagamento:</strong></p>
+                <ul>
+                    <li><strong>Método:</strong> ${paymentMethodInfo}</li>
+                    <li><strong>Nome:</strong> ${nomeRecebedor}</li>
+                    <li><strong>Chave Pix:</strong> ${chavePix} (E-mail)</li>
+                    <li><strong>Cidade:</strong> ${cidadeRecebedor}</li>
+                    <li><strong>Valor:</strong> R$ ${totalAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</li>
+                </ul>
+                <p>Escaneie o QR Code acima para pagar via Pix.</p>
+            `;
+
+            qrModalMessage.innerHTML = qrDetailsHtml;
             qrModal.classList.add('active');
 
         } else {
