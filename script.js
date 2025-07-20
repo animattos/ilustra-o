@@ -124,6 +124,8 @@ const additionalModalImagesForEighthIllustration = [
 ];
 
 
+
+
 const gallery = document.getElementById('gallery');
 const modal = document.getElementById('modal');
 const modalImage = document.getElementById('modal-image');
@@ -160,8 +162,7 @@ const howItWorksContent = document.getElementById('how-it-works-content');
 const TEXT_LAYOUT_PRICE_PER_ILLUSTRATION = 15;
 const COVER_DESIGN_PRICE = 250;
 const BOOK_TRAILER_PRICE = 280;
-const optionTranslation = document.getElementById('option-translation');
-const TRANSLATION_PRICE_PER_PAGE = 35;
+
 const DISPLAY_QUANTITY = 8;
 
 let currentModalIndex = 0;
@@ -187,10 +188,7 @@ const serviceInfoContent = {
         videoUrl: 'https://www.youtube.com/embed/yg9Ds6rh6iE?si=az-yBD4OjGMcxe8B'
     }
 };
-'translation': {
-    title: 'Sobre Tradução para outras línguas',
-    description: 'Tradução por página com base nas ilustrações. Se design de capa for selecionado, será traduzida também.'
-}
+
 
 
 
@@ -435,15 +433,6 @@ function updateCalculationDisplay() {
         baseTotal += BOOK_TRAILER_PRICE;
         additionalServicesList.push('Criação de book trailer');
     }
-    if (optionTranslation && optionTranslation.checked) {
-    baseTotal += quantity * TRANSLATION_PRICE_PER_PAGE;
-    additionalServicesList.push('Tradução para outras línguas');
-
-    if (optionCoverDesign && optionCoverDesign.checked) {
-        baseTotal += TRANSLATION_PRICE_PER_PAGE;
-        additionalServicesList.push('Tradução da capa');
-    }
-    }
 
     let finalPrice = baseTotal;
 
@@ -472,14 +461,7 @@ function updateCalculationDisplay() {
         finalPrice = baseTotal; // No discount or split
     }
 
-     // Altera o rótulo conforme a forma de pagamento
-const priceLabel = document.querySelector('#price-display');
-if (optionFiftyFifty.checked) {
-    priceLabel.innerHTML = `Entrada: <span id="total-price">R$ ${finalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>`;
-} else {
-    priceLabel.innerHTML = `Preço Total: <span id="total-price">R$ ${finalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>`;
-}
-
+     totalPriceSpan.textContent = `R$ ${finalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
      // Return details for QR modal message
      return {
@@ -643,7 +625,7 @@ quantitySlider.addEventListener('input', updateCalculationDisplay);
 optionTextLayout.addEventListener('change', updateCalculationDisplay);
 optionCoverDesign.addEventListener('change', updateCalculationDisplay);
 optionBookTrailer.addEventListener('change', updateCalculationDisplay);
-optionTranslation.addEventListener('change', updateCalculationDisplay);
+
 // Ensure only one payment option can be selected
 optionCashDiscount.addEventListener('change', function() {
     if (this.checked) {
