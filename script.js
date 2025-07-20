@@ -124,8 +124,6 @@ const additionalModalImagesForEighthIllustration = [
 ];
 
 
-
-
 const gallery = document.getElementById('gallery');
 const modal = document.getElementById('modal');
 const modalImage = document.getElementById('modal-image');
@@ -141,6 +139,8 @@ const totalPriceSpan = document.getElementById('total-price');
 const optionTextLayout = document.getElementById('option-text-layout');
 const optionCoverDesign = document.getElementById('option-cover-design');
 const optionBookTrailer = document.getElementById('option-book-trailer');
+const optionTranslation = document.getElementById('option-translation');
+const optionAttractiveText = document.getElementById('option-attractive-text');
 
 const optionCashDiscount = document.getElementById('option-cash-discount');
 const optionFiftyFifty = document.getElementById('option-fifty-fifty');
@@ -150,58 +150,26 @@ const qrModal = document.getElementById('qr-modal');
 const qrModalClose = document.querySelector('.qr-close-button');
 const qrcodeDiv = document.getElementById('qrcode');
 const qrModalMessage = document.getElementById('qr-modal-message');
-const downloadDetailsButton = document.getElementById('download-details-button');
-const copyPixKeyButton = document.getElementById('copy-pix-key-button');
 
-// New elements for How It Works Modal
-const howItWorksButton = document.getElementById('how-it-works-button');
-const howItWorksModal = document.getElementById('how-it-works-modal');
-const howItWorksCloseButton = document.querySelector('.how-it-works-close-button');
-const howItWorksContent = document.getElementById('how-it-works-content'); 
-
-const TEXT_LAYOUT_PRICE_PER_ILLUSTRATION = 15;
+const TEXT_LAYOUT_PRICE_PER_ILLUSTRATION = 30;
 const COVER_DESIGN_PRICE = 250;
-const BOOK_TRAILER_PRICE = 280;
+const BOOK_TRAILER_PRICE = 2500; 
+const TRANSLATION_PRICE_PER_ILLUSTRATION = 35;
+const ATTRACTIVE_TEXT_PRICE = 350;
 
-const DISPLAY_QUANTITY = 8;
+const DISPLAY_QUANTITY = 8; 
 
 let currentModalIndex = 0;
 let currentModalImages = [];
 
-
-// Define content for service info popups
-const serviceInfoContent = {
-    'text-layout': {
-        title: 'Sobre Texto e Diagramação',
-        description: 'Este serviço inclui a organização e formatação do texto (quando fornecido) e a sua correta integração com as ilustrações dentro de um layout específico, garantindo que texto e imagem se complementem de forma harmoniosa na página (valor por página).'
-    },
-    'cover-design': {
-        title: 'Sobre Design de Capa',
-        description: '<strong>• Composição e Layout:</strong> Organização harmônica dos elementos (título, subtítulo, nome do autor, selo editorial) respeitando hierarquias visuais e princípios de design como alinhamento, contraste e equilíbrio.<br>' +
-               '<strong>• Tipografia:</strong> Escolha e aplicação de fontes adequadas à temática e ao público-alvo, considerando legibilidade, personalidade e estética.<br>' +
-        '<strong>• Tratamento de Imagem:</strong> Edição e ajuste de fotos, texturas ou imagens fornecidas (correção de cor, recorte, aplicação de filtros ou efeitos) para adequação ao conceito da capa.<br>' +
-             '<strong>• Identidade Visual:</strong> Definição de paleta de cores, estilos gráficos e padrões que transmitam a essência do conteúdo, alinhando com tendências de mercado e expectativas do público.'
-    },
-    'book-trailer': {
-        title: 'Sobre Book Trailer',
-        description: 'A criação de um book trailer envolve a produção de um pequeno vídeo promocional para o seu livro. Inclui a seleção ou criação de artes (estáticas ou animadas), edição de vídeo, adição de música e, se necessário, locução ou efeitos sonoros para gerar interesse e expectativa.',
-        videoUrl: 'https://www.youtube.com/embed/yg9Ds6rh6iE?si=az-yBD4OjGMcxe8B'
-    }
-};
-
-
-
-
-
 // --- Provided Pix generation script ---
-// Updated with user's information
 const chavePix = "estudioanimattos@gmail.com";
 const nomeRecebedor = "Alessandro Mattos";
-const cidadeRecebedor = "Rio de Janeiro";
+const cidadeRecebedor = "Sao Paulo"; 
 
 function calculateCRC16(str) {
   let crc = 0xFFFF;
-  let polynomial = 0x1021;
+  let polynomial = 0x1021; 
 
   for (let i = 0; i < str.length; i++) {
     let byte = str.charCodeAt(i) & 0xFF;
@@ -220,21 +188,16 @@ function calculateCRC16(str) {
   return hex;
 }
 
-// Helper function to format TLV (Tag, Length, Value)
-const formatTLV = (tag, value) => {
-    const len = value.length;
-    const lenStr = len.toString().padStart(2, '0');
-    return `${tag}${lenStr}${value}`;
-};
-
-function generatePixData(valor, selectedDetails) {
+function generatePixData(valor) {
   const valorFormatado = valor.toFixed(2);
-  // Include selected details in the description/transaction ID if possible,
-  // but the EMV standard has limitations on custom fields and length.
-  // For simplicity and standard compliance, we'll keep a simple ID
-  // and display details in the modal text, not the QR payload itself.
-  // The EMV standard doesn't have dedicated fields for detailed order breakdowns.
   const idTx = "***"; 
+
+  // Helper to format TLV (Tag, Length, Value)
+  const formatTLV = (tag, value) => {
+      const len = value.length;
+      const lenStr = len.toString().padStart(2, '0');
+      return `${tag}${lenStr}${value}`;
+  };
 
   // Payload format indicator (ID 00) - Must be '01'
   const payloadFormatIndicator = formatTLV('00', '01');
@@ -246,9 +209,6 @@ function generatePixData(valor, selectedDetails) {
   // Merchant account information (ID 26)
   let merchantAccount = formatTLV('00', 'BR.GOV.BCB.PIX'); 
   merchantAccount += formatTLV('01', chavePix); 
-  // Optional: GUI (00), Key type (01), Description (02), URL (25)
-  // We could add a brief description here, but length is limited.
-  // Let's stick to the required fields for maximum compatibility.
   const merchantAccountInformation = formatTLV('26', merchantAccount);
 
 
@@ -270,8 +230,7 @@ function generatePixData(valor, selectedDetails) {
   // Merchant city (ID 60)
   const merchantCity = formatTLV('60', cidadeRecebedor);
 
-  // Additional Data Field Template (ID 62)
-  // Field 05: Reference Label (Transaction ID)
+  // Additional Data Field Template (ID 62) - Optional but recommended for Transaction ID
   let additionalData = formatTLV('05', idTx); 
   const additionalDataFieldTemplate = formatTLV('62', additionalData);
 
@@ -291,12 +250,6 @@ function generatePixData(valor, selectedDetails) {
 
   return pixCode;
 }
-
-
-// --- TROCAR AQUI PRA BAIXO ---
-
-
-
 // --- End of provided Pix generation script ---
 
 
@@ -326,10 +279,10 @@ function createGalleryItem(illustration, index) {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = `illustration-${index}`;
-    checkbox.checked = false; 
+    checkbox.checked = false;
     const label = document.createElement('label');
     label.htmlFor = `illustration-${index}`;
-    label.innerHTML = 'Incluir <span style="display:none;">(' + (index + 1) + ')</span>';
+    label.textContent = 'Incluir';
 
     checkboxContainer.appendChild(checkbox);
     checkboxContainer.appendChild(label);
@@ -352,7 +305,6 @@ function createGalleryItem(illustration, index) {
         updateCalculationDisplay();
     });
 
-    // Allows clicking the entire checkbox container or label to toggle
     checkboxContainer.addEventListener('click', (event) => {
          if (event.target !== checkbox) {
              checkbox.checked = !checkbox.checked;
@@ -371,15 +323,15 @@ function handleCheckboxChange(changedCheckbox) {
     if (changedCheckbox.checked) {
         checkboxes.forEach(checkbox => {
             if (checkbox !== changedCheckbox) {
-                checkbox.checked = false;
-                checkbox.disabled = true;
-                checkbox.closest('.gallery-item').classList.add('disabled');
+                checkbox.checked = false; 
+                checkbox.disabled = true; 
+                checkbox.closest('.gallery-item').classList.add('disabled'); 
             }
         });
     } else {
         checkboxes.forEach(checkbox => {
-            checkbox.disabled = false;
-            checkbox.closest('.gallery-item').classList.remove('disabled');
+            checkbox.disabled = false; 
+            checkbox.closest('.gallery-item').classList.remove('disabled'); 
         });
     }
 }
@@ -394,6 +346,8 @@ function populateGallery() {
         gallery.appendChild(item);
     });
 
+    const initiallyChecked = gallery.querySelector('.illustration-checkbox input[type="checkbox"]:checked');
+
 }
 
 function updateCalculationDisplay() {
@@ -401,7 +355,6 @@ function updateCalculationDisplay() {
     currentQuantitySpan.textContent = quantity;
 
     let selectedIllustrationsBaseCost = 0;
-    let selectedIllustrationIndex = -1;
 
     const selectedCheckbox = gallery.querySelector('.illustration-checkbox input[type="checkbox"]:checked');
 
@@ -410,7 +363,6 @@ function updateCalculationDisplay() {
         const index = parseInt(itemDiv.dataset.index, 10);
         if (index >= 0 && index < baseIllustrations.length) {
             selectedIllustrationsBaseCost = baseIllustrations[index].price;
-            selectedIllustrationIndex = index; 
         } else {
             console.warn("Selected illustration index out of bounds:", index);
             selectedCheckbox.checked = false;
@@ -420,57 +372,48 @@ function updateCalculationDisplay() {
 
     let baseTotal = selectedIllustrationsBaseCost * quantity;
 
-    let additionalServicesList = [];
     if (optionTextLayout.checked) {
         baseTotal += quantity * TEXT_LAYOUT_PRICE_PER_ILLUSTRATION;
-        additionalServicesList.push('Texto e diagramação');
     }
     if (optionCoverDesign.checked) {
         baseTotal += COVER_DESIGN_PRICE;
-        additionalServicesList.push('Ilustração de design de capa');
     }
     if (optionBookTrailer.checked) {
         baseTotal += BOOK_TRAILER_PRICE;
-        additionalServicesList.push('Criação de book trailer');
+    }
+    if (optionTranslation.checked) {
+        baseTotal += quantity * TRANSLATION_PRICE_PER_ILLUSTRATION;
+    }
+    if (optionAttractiveText.checked) {
+        baseTotal += ATTRACTIVE_TEXT_PRICE;
     }
 
     let finalPrice = baseTotal;
 
     const cashDiscountOptionDiv = optionCashDiscount.closest('.payment-option');
     const fiftyFiftyOptionDiv = optionFiftyFifty.closest('.payment-option');
+    const priceLabel = document.getElementById('price-label');
 
     document.querySelectorAll('.payment-option').forEach(div => div.classList.remove('selected'));
 
-    // Handle exclusive payment options
     if (optionCashDiscount.checked && optionFiftyFifty.checked) {
-        // If both are checked, uncheck the one most recently checked, or fiftyFifty
-        // Let's enforce cash discount if both are attempted.
         optionFiftyFifty.checked = false;
-    } else if (!optionCashDiscount.checked && !optionFiftyFifty.checked) {
-         // Default state, no specific class
     }
-
 
     if (optionCashDiscount.checked) {
         finalPrice = baseTotal * 0.9;
         cashDiscountOptionDiv.classList.add('selected');
+        priceLabel.textContent = 'Preço Total:';
     } else if (optionFiftyFifty.checked) {
         finalPrice = baseTotal * 0.5;
         fiftyFiftyOptionDiv.classList.add('selected');
+        priceLabel.textContent = 'Entrada:';
     } else {
-        finalPrice = baseTotal; // No discount or split
+        finalPrice = baseTotal; 
+        priceLabel.textContent = 'Preço Total:';
     }
 
      totalPriceSpan.textContent = `R$ ${finalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-
-     // Return details for QR modal message
-     return {
-         selectedIllustrationIndex: selectedIllustrationIndex,
-         quantity: quantity,
-         additionalServices: additionalServicesList,
-         finalPrice: finalPrice,
-         paymentOption: optionCashDiscount.checked ? 'À Vista (10% desconto)' : (optionFiftyFifty.checked ? '50% agora, 50% na entrega' : 'Preço Cheio')
-     };
 }
 
 function updateModalContent(newIndex) {
@@ -493,7 +436,6 @@ function updateModalContent(newIndex) {
     modalImage.src = imageItem.src;
 
     let descriptionText = 'Descrição não disponível.';
-    // Prioritize description directly on the modal item, then fall back to base illustration description
     if (imageItem.description) {
         descriptionText = imageItem.description;
     } else if (imageItem.baseIndex !== undefined && baseIllustrations[imageItem.baseIndex]) {
@@ -515,42 +457,13 @@ function openModal(baseIndex) {
 
     currentModalImages = [];
 
-    
-    
-    
-    // --- TROCAR AQUI PRA CIMA ---
-    
-    
-    
-    
-    // Always include the base illustration as the first item
     currentModalImages.push({ src: baseIllustration.src, baseIndex: baseIndex, description: baseIllustration.description });
 
-    // Add specific additional images if needed (currently only for index 0)
     if (baseIndex === 0) {
-    currentModalImages.push(...additionalModalImagesForFirstIllustration);
-} else if (baseIndex === 1) {
-    currentModalImages.push(...additionalModalImagesForSecondIllustration);
-} else if (baseIndex === 2) {
-    currentModalImages.push(...additionalModalImagesForThirdIllustration);
-} else if (baseIndex === 3) {
-    currentModalImages.push(...additionalModalImagesForFourthIllustration);  
-} else if (baseIndex === 4) {
-    currentModalImages.push(...additionalModalImagesForFifthIllustration); 
+        currentModalImages.push(...additionalModalImagesForFirstIllustration);
+    }
 
-} else if (baseIndex === 5) {
-    currentModalImages.push(...additionalModalImagesForSixthIllustration); 
-
-} else if (baseIndex === 6) {
-    currentModalImages.push(...additionalModalImagesForSeventhIllustration); 
-
-} else if (baseIndex === 7) {
-    currentModalImages.push(...additionalModalImagesForEighthIllustration); 
-
-}
-  
-
-    currentModalIndex = 0; 
+    currentModalIndex = 0;
     updateModalContent(0);
 
     modal.classList.add('active');
@@ -566,22 +479,10 @@ function closeModal() {
 
 function closeQrModal() {
     qrModal.classList.remove('active');
-    // Clear the QR code when modal is closed
     if (qrcodeDiv) {
-        qrcodeDiv.innerHTML = '';
-    }
-    // Reset copy button text
-    if (copyPixKeyButton) {
-        copyPixKeyButton.textContent = 'Copiar Chave Pix';
-        copyPixKeyButton.classList.remove('copied'); // Remove success state class
+        qrcodeDiv.innerHTML = ''; 
     }
 }
-
-// New function to close the "How It Works" modal
-function closeHowItWorksModal() {
-    howItWorksModal.classList.remove('active');
-}
-
 
 prevButton.addEventListener('click', () => {
     updateModalContent(currentModalIndex - 1);
@@ -591,22 +492,8 @@ nextButton.addEventListener('click', () => {
     updateModalContent(currentModalIndex + 1);
 });
 
-// Use the existing close button for the main modal
 closeButton.addEventListener('click', closeModal);
 
-// Use the new close button for the QR modal
-qrModalClose.addEventListener('click', closeQrModal);
-
-// Add event listener for the new "How It Works" button
-howItWorksButton.addEventListener('click', () => {
-    howItWorksModal.classList.add('active');
-});
-
-// Add event listener for the new "How It Works" close button
-howItWorksCloseButton.addEventListener('click', closeHowItWorksModal);
-
-
-// Close modals if clicking outside the content
 window.addEventListener('click', (event) => {
     if (event.target === modal) {
         closeModal();
@@ -614,19 +501,18 @@ window.addEventListener('click', (event) => {
     if (event.target === qrModal) {
         closeQrModal();
     }
-     if (event.target === howItWorksModal) {
-        closeHowItWorksModal();
-    }
 });
 
+qrModalClose.addEventListener('click', closeQrModal);
 
 quantitySlider.addEventListener('input', updateCalculationDisplay);
 
 optionTextLayout.addEventListener('change', updateCalculationDisplay);
 optionCoverDesign.addEventListener('change', updateCalculationDisplay);
 optionBookTrailer.addEventListener('change', updateCalculationDisplay);
+optionTranslation.addEventListener('change', updateCalculationDisplay);
+optionAttractiveText.addEventListener('change', updateCalculationDisplay);
 
-// Ensure only one payment option can be selected
 optionCashDiscount.addEventListener('change', function() {
     if (this.checked) {
         optionFiftyFifty.checked = false; 
@@ -641,31 +527,17 @@ optionFiftyFifty.addEventListener('change', function() {
 });
 
 generateQrcodeButton.addEventListener('click', () => {
-    const calculationDetails = updateCalculationDisplay(); 
-
-    const totalAmount = calculationDetails.finalPrice;
-    const selectedIllustrationIndex = calculationDetails.selectedIllustrationIndex;
-    const quantity = calculationDetails.quantity;
-    const additionalServices = calculationDetails.additionalServices;
-    const paymentOption = calculationDetails.paymentOption;
-
-
-    if (selectedIllustrationIndex === -1 || quantity <= 0) {
-         alert("Por favor, selecione uma ilustração e a quantidade desejada.");
-         return;
-    }
+    const totalAmountText = totalPriceSpan.textContent;
+    const totalAmount = parseFloat(totalAmountText.replace('R$', '').replace(/\./g, '').replace(',', '.').trim());
 
     if (isNaN(totalAmount) || totalAmount <= 0) {
         alert("Por favor, selecione uma ilustração e quantidade para calcular o valor total.");
         return;
     }
 
-    // Generate Pix payload - EMV standard doesn't include detailed order breakdown
-    // The details will be shown in the modal message instead.
-    // Passing selectedDetails just in case generatePixData ever needs them (it doesn't for payload)
-    const pixPayload = generatePixData(totalAmount, calculationDetails);
+    const pixPayload = generatePixData(totalAmount);
 
-    console.log("Generated Pix Payload:", pixPayload);
+    console.log("Generated Pix Payload:", pixPayload); 
 
     if (qrcodeDiv) {
         qrcodeDiv.innerHTML = ''; 
@@ -678,41 +550,27 @@ generateQrcodeButton.addEventListener('click', () => {
     try {
         if (typeof QRCode !== 'undefined') {
             new QRCode(qrcodeDiv, {
-                text: pixPayload,
-                width: 256,
+                text: pixPayload, 
+                width: 256, 
                 height: 256,
                 colorDark: "#000000",
                 colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
+                correctLevel: QRCode.CorrectLevel.H 
             });
 
-            // Format the order details for the modal message
-            let orderDetailsHtml = `
-                <h3>Resumo do Pedido:</h3>
-                <p><strong>Ilustração Selecionada:</strong> #${selectedIllustrationIndex + 1}</p>
-                <p><strong>Quantidade:</strong> ${quantity}</p>
-            `;
-
-            if (additionalServices.length > 0) {
-                orderDetailsHtml += `<p><strong>Serviços Adicionais:</strong> ${additionalServices.join(', ')}</p>`;
-            } else {
-                 orderDetailsHtml += `<p><strong>Serviços Adicionais:</strong> Nenhum</p>`;
+            let paymentMethodInfo = 'Valor Total';
+            if (optionCashDiscount.checked) {
+                paymentMethodInfo = 'Á Vista (10% de desconto)';
+            } else if (optionFiftyFifty.checked) {
+                 paymentMethodInfo = '50% para iniciar, 50% na entrega (Valor parcial)';
             }
 
-            orderDetailsHtml += `
-                <p><strong>Forma de Pagamento:</strong> ${paymentOption}</p>
-                <p><strong>Valor:</strong> R$ ${totalAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-                <hr style="margin: 15px 0;">
-                <p>Escaneie o QR Code acima para pagar via Pix.</p>
-                <p style="font-size: 0.8em; color: #777;">
-                    <strong>Nome:</strong> ${nomeRecebedor}<br>
-                    <strong>Chave Pix:</strong> ${chavePix} <br>
-                    <strong>Cidade:</strong> ${cidadeRecebedor}
-                </p>
-            `;
-
-            // Update the QR modal message with order details and payment instructions
-            qrModalMessage.innerHTML = orderDetailsHtml; 
+            qrModalMessage.innerHTML = `Este QR Code contém os dados para um pagamento Pix estático (${paymentMethodInfo}):<br>
+             <strong>Nome:</strong> ${nomeRecebedor}<br>
+             <strong>Chave Pix:</strong> ${chavePix} (E-mail)<br>
+             <strong>Cidade:</strong> ${cidadeRecebedor}<br>
+             <strong>Valor:</strong> R$ ${totalAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<br><br>
+             Escaneie o QR Code para pagar via Pix.`; 
 
 
             qrModal.classList.add('active');
@@ -727,125 +585,5 @@ generateQrcodeButton.addEventListener('click', () => {
     }
 });
 
-// Add event listener for the download button
-downloadDetailsButton.addEventListener('click', () => {
-    // Get the text content from the qr-modal-message div
-    const detailsText = qrModalMessage.innerText || qrModalMessage.textContent;
-
-    // Clean up extra whitespace from the message for better download
-    const cleanedText = detailsText.split('\n')
-        .map(line => line.trim())
-        .filter(line => line.length > 0)
-        .join('\n');
-
-
-    // Create a Blob with the text content
-    const blob = new Blob([cleanedText], { type: 'text/plain' });
-
-    // Create a download link
-    const downloadLink = document.createElement('a');
-    downloadLink.href = URL.createObjectURL(blob);
-    downloadLink.download = 'detalhes_pedido_ilustracao.txt';
-
-    // Programmatically click the link to trigger the download
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
-
-    // Revoke the object URL to free up resources
-    URL.revokeObjectURL(downloadLink.href);
-});
-
-// Add event listener for the Copy Pix Key button
-copyPixKeyButton.addEventListener('click', () => {
-    navigator.clipboard.writeText(chavePix).then(() => {
-        // Optional: Provide user feedback
-        copyPixKeyButton.textContent = 'Copiado!';
-        copyPixKeyButton.classList.add('copied'); // Add a success state class
-
-        // Reset button text after a short delay
-        setTimeout(() => {
-            copyPixKeyButton.textContent = 'Copiar Chave Pix';
-            copyPixKeyButton.classList.remove('copied'); // Remove success state class
-        }, 2000); // Reset after 2 seconds
-    }).catch(err => {
-        console.error('Failed to copy text: ', err);
-        alert('Erro ao copiar a chave Pix.');
-    });
-});
-
-
-// Initial population and calculation display
 populateGallery();
 updateCalculationDisplay();
-
-
-
-
-
-// --- INÍCIO DA ADIÇÃO DO SERVICE INFO MODAL --- //
-
-// Elementos do modal de informações do serviço
-const serviceInfoModal = document.getElementById('service-info-modal');
-const serviceInfoCloseButton = document.querySelector('.service-info-close-button');
-const serviceInfoTitle = document.getElementById('service-info-title');
-const serviceInfoContentDiv = document.getElementById('service-info-content');
-const infoIcons = document.querySelectorAll('#additional-options .info-icon');
-
-// Elementos para vídeo do modal
-const serviceVideoContainer = document.getElementById('service-video-container');
-const serviceVideoIframe = document.getElementById('service-video-iframe');
-
-// Função para abrir e popular o modal de informações
-function openServiceInfoModal(serviceType) {
-    const serviceInfo = serviceInfoContent[serviceType];
-
-    // Oculta e limpa o vídeo inicialmente
-    serviceVideoContainer.style.display = 'none';
-    serviceVideoIframe.src = '';
-
-    if (serviceInfo) {
-        serviceInfoTitle.textContent = serviceInfo.title;
-        serviceInfoContentDiv.innerHTML = `<p>${serviceInfo.description}</p>`;
-
-        // Se houver vídeo, exibe
-        if (serviceInfo.videoUrl) {
-            serviceVideoContainer.style.display = 'block';
-            serviceVideoIframe.src = serviceInfo.videoUrl;
-        }
-
-        serviceInfoModal.classList.add('active');
-    } else {
-        console.error("Service info não encontrada para o tipo:", serviceType);
-    }
-}
-
-// Função para fechar o modal de informações
-function closeServiceInfoModal() {
-    serviceInfoModal.classList.remove('active');
-    serviceVideoIframe.src = '';
-    serviceVideoContainer.style.display = 'none';
-    serviceInfoTitle.textContent = '';
-    serviceInfoContentDiv.innerHTML = '';
-}
-
-// Event listener para os ícones de informação
-infoIcons.forEach(icon => {
-    icon.addEventListener('click', () => {
-        const serviceType = icon.dataset.service;
-        openServiceInfoModal(serviceType);
-    });
-});
-
-// Event listener para o botão de fechar do modal
-serviceInfoCloseButton.addEventListener('click', closeServiceInfoModal);
-
-// Ajuste do window click para fechar este modal também
-window.addEventListener('click', (event) => {
-    if (event.target === serviceInfoModal) {
-        closeServiceInfoModal();
-    }
-});
-
-// --- FIM DA ADIÇÃO DO SERVICE INFO MODAL --- //
-
