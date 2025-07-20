@@ -154,6 +154,14 @@ const qrModalMessage = document.getElementById('qr-modal-message');
 const downloadQrButton = document.getElementById('download-qr-button');
 const copyPixButton = document.getElementById('copy-pix-button');
 
+// New service details modal elements
+const serviceDetailsModal = document.getElementById('service-details-modal');
+const serviceDetailsCloseButton = document.querySelector('.service-details-close-button');
+const serviceDetailsTitle = document.getElementById('service-details-title');
+const serviceDetailsDescription = document.getElementById('service-details-description');
+const infoButtons = document.querySelectorAll('.info-button');
+
+
 const TEXT_LAYOUT_PRICE_PER_ILLUSTRATION = 30;
 const COVER_DESIGN_PRICE = 250;
 const BOOK_TRAILER_PRICE = 280; 
@@ -164,6 +172,30 @@ const DISPLAY_QUANTITY = 8;
 
 let currentModalIndex = 0;
 let currentModalImages = [];
+
+// New: Detailed descriptions for services
+const serviceDetails = {
+    'text-layout': {
+        title: 'Texto e Diagramação',
+        description: 'Este serviço inclui a organização e formatação do texto do seu livro para que ele se harmonize perfeitamente com as ilustrações. Garante uma leitura fluida e um design profissional, adaptando o layout para e-books ou impressão.'
+    },
+    'cover-design': {
+        title: 'Design de Capa',
+        description: 'A criação de uma capa impactante e profissional que capture a essência do seu livro e atraia o público-alvo. O design será exclusivo, utilizando elementos visuais que se conectam com a história e o estilo das ilustrações internas.'
+    },
+    'book-trailer': {
+        title: 'Book Trailer',
+        description: 'Um vídeo promocional dinâmico e envolvente para seu livro. Inclui animações, trilha sonora, e narração (se desejado), criando uma prévia que desperta o interesse e convida os leitores a mergulharem na sua história.'
+    },
+    'translation': {
+        title: 'Traduções para Outras Línguas',
+        description: 'Oferecemos tradução profissional do texto do seu livro para diversos idiomas, permitindo que sua obra alcance um público global. As traduções são feitas por nativos e revisadas para garantir precisão e fidelidade ao original.'
+    },
+    'attractive-text': {
+        title: 'Deixar Texto Mais Atraente',
+        description: 'Este serviço visa aprimorar a clareza, o ritmo e o impacto do seu texto. Inclui revisão de estilo, sugestões de reescrita e otimização de frases para tornar a leitura mais cativante e envolvente para o seu público.'
+    }
+};
 
 // --- Provided Pix generation script ---
 const chavePix = "estudioanimattos@gmail.com";
@@ -511,6 +543,23 @@ function closeQrModal() {
     }
 }
 
+// New functions for service details modal
+function openServiceDetailsModal(serviceKey) {
+    const details = serviceDetails[serviceKey];
+    if (details) {
+        serviceDetailsTitle.textContent = details.title;
+        serviceDetailsDescription.textContent = details.description;
+        serviceDetailsModal.classList.add('active');
+    } else {
+        console.error('Service details not found for key:', serviceKey);
+    }
+}
+
+function closeServiceDetailsModal() {
+    serviceDetailsModal.classList.remove('active');
+}
+
+
 prevButton.addEventListener('click', () => {
     updateModalContent(currentModalIndex - 1);
 });
@@ -528,9 +577,16 @@ window.addEventListener('click', (event) => {
     if (event.target === qrModal) {
         closeQrModal();
     }
+    // New: Close service details modal when clicking outside
+    if (event.target === serviceDetailsModal) {
+        closeServiceDetailsModal();
+    }
 });
 
 qrModalClose.addEventListener('click', closeQrModal);
+
+// New: Event listener for service details modal close button
+serviceDetailsCloseButton.addEventListener('click', closeServiceDetailsModal);
 
 quantitySlider.addEventListener('input', updateCalculationDisplay);
 
@@ -539,6 +595,16 @@ optionCoverDesign.addEventListener('change', updateCalculationDisplay);
 optionBookTrailer.addEventListener('change', updateCalculationDisplay);
 optionTranslation.addEventListener('change', updateCalculationDisplay);
 optionAttractiveText.addEventListener('change', updateCalculationDisplay);
+
+// New: Add event listeners to info buttons
+infoButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent checkbox/label click event from firing
+        const serviceKey = event.target.dataset.service;
+        openServiceDetailsModal(serviceKey);
+    });
+});
+
 
 optionCashDiscount.addEventListener('change', function() {
     if (this.checked) {
