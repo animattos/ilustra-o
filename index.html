@@ -24,7 +24,7 @@
 
     <div id="controls">
         <div class="control-group">
-            <label for="quantity-slider">Quantidade de Ilustrações:</label>
+            <label for="quantity-slider" class="highlight">Quantidade de Ilustrações:</label>
             <div id="quantity-control">
                 <input type="range" id="quantity-slider" min="1" max="100" value="1">
                 <span id="current-quantity">1</span>
@@ -32,26 +32,31 @@
         </div>
 
         <div id="additional-options" class="control-group">
-            <p>Serviços Adicionais:</p>
-            <div>
+            <p class="highlight">Serviços Adicionais:</p>
+            <div class="option-item">
                 <input type="checkbox" id="option-text-layout">
                 <label for="option-text-layout">Texto e diagramação (R$ 30,00 / ilustração)</label>
+                <button class="info-button" data-service="text-layout" title="Mais informações">&#128269;</button>
             </div>
-            <div>
+            <div class="option-item">
                 <input type="checkbox" id="option-cover-design">
                 <label for="option-cover-design">Design de capa (R$ 250,00)</label>
+                <button class="info-button" data-service="cover-design" title="Mais informações">&#128269;</button>
             </div>
-            <div>
+            <div class="option-item">
                 <input type="checkbox" id="option-book-trailer">
                 <label for="option-book-trailer">book trailer (R$ 280,00)</label>
+                <button class="info-button" data-service="book-trailer" title="Mais informações">&#128269;</button>
             </div>
-            <div>
+            <div class="option-item">
                 <input type="checkbox" id="option-translation">
                 <label for="option-translation">Traduções(R$ 35,00 / ilustração)</label>
+                <button class="info-button" data-service="translation" title="Mais informações">&#128269;</button>
             </div>
-            <div>
+            <div class="option-item">
                 <input type="checkbox" id="option-attractive-text">
                 <label for="option-attractive-text">Deixar texto mais atraente (R$ 350,00)</label>
+                <button class="info-button" data-service="attractive-text" title="Mais informações">&#128269;</button>
             </div>
         </div>
 
@@ -97,6 +102,14 @@
                 <button id="download-qr-button" class="qr-action-button">Baixar Informações e QR Code</button>
                 <button id="copy-pix-button" class="qr-action-button">Copiar Chave Pix</button>
             </div>
+        </div>
+    </div>
+
+    <div id="service-details-modal" class="modal">
+        <div class="modal-content service-details-modal-content">
+            <span class="close-button service-details-close-button">&times;</span>
+            <h2 id="service-details-title"></h2>
+            <p id="service-details-description"></p>
         </div>
     </div>
 
