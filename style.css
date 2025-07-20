@@ -296,7 +296,9 @@ h1 {
     font-size: 1em;
 }
 
-#payment-options p.highlight {
+#additional-options p.highlight,
+#payment-options p.highlight,
+#quantity-control label.highlight {
     color: #007bff;
     font-size: 1.1em;
 }
@@ -312,6 +314,10 @@ h1 {
     background-color: #fefefe;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     cursor: pointer;
+}
+
+#additional-options div.option-item {
+    cursor: default; /* Remove pointer for the whole div, only checkbox/label/button are clickable */
 }
 
 #additional-options div label,
@@ -499,4 +505,50 @@ h1 {
 
 #copy-pix-button:hover {
     background-color: #0056b3;
+}
+
+.info-button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff;
+    cursor: pointer;
+    padding: 0 5px;
+    margin-left: 10px;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
+
+.info-button:hover {
+    color: #0056b3;
+}
+
+.service-details-modal-content {
+    max-width: 600px;
+    padding: 25px;
+    text-align: left;
+    max-height: 80vh;
+}
+
+.service-details-modal-content h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.service-details-modal-content p {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.service-details-close-button {
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
 }
