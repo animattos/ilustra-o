@@ -124,8 +124,6 @@ const additionalModalImagesForEighthIllustration = [
 ];
 
 
-
-
 const gallery = document.getElementById('gallery');
 const modal = document.getElementById('modal');
 const modalImage = document.getElementById('modal-image');
