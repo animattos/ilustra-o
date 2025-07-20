@@ -415,11 +415,29 @@ h1 {
     font-size: 0.9em;
     color: #555;
     margin-top: 10px;
-    text-align: center;
+    text-align: left;
 }
 
 .qr-modal p strong {
     color: #333;
+}
+
+.qr-modal ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.qr-modal ul li {
+    margin-bottom: 5px;
+    color: #444;
+    font-size: 0.85em;
+}
+
+.qr-modal ul ul {
+    margin-top: 5px;
+    margin-left: 15px;
 }
 
 .qr-modal .close-button {
@@ -447,4 +465,38 @@ h1 {
 .payment-option input[type="checkbox"] {
   /* Use custom checkbox styling if needed, or just improve the default look */
   /* For now, let's rely on default look + label clickability */
+}
+
+.qr-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.qr-action-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.qr-action-button:hover {
+    background-color: #218838;
+}
+
+#copy-pix-button {
+    background-color: #007bff;
+}
+
+#copy-pix-button:hover {
+    background-color: #0056b3;
 }
