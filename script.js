@@ -151,6 +151,9 @@ const qrModalClose = document.querySelector('.qr-close-button');
 const qrcodeDiv = document.getElementById('qrcode');
 const qrModalMessage = document.getElementById('qr-modal-message');
 
+const downloadQrButton = document.getElementById('download-qr-button');
+const copyPixButton = document.getElementById('copy-pix-button');
+
 const TEXT_LAYOUT_PRICE_PER_ILLUSTRATION = 30;
 const COVER_DESIGN_PRICE = 250;
 const BOOK_TRAILER_PRICE = 280; 
@@ -649,6 +652,56 @@ generateQrcodeButton.addEventListener('click', () => {
     } catch (error) {
         console.error("Error generating QR Code:", error);
         alert("Erro ao gerar o QR Code.");
+    }
+});
+
+copyPixButton.addEventListener('click', async () => {
+    try {
+        await navigator.clipboard.writeText(chavePix);
+        alert("Chave Pix copiada para a área de transferência!");
+    } catch (err) {
+        console.error('Falha ao copiar a chave Pix: ', err);
+        alert("Erro ao copiar a chave Pix. Por favor, copie manualmente: " + chavePix);
+    }
+});
+
+downloadQrButton.addEventListener('click', async () => {
+    const qrCanvas = qrcodeDiv.querySelector('canvas');
+    if (!qrCanvas) {
+        alert("QR Code não disponível para download.");
+        return;
+    }
+
+    try {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Get the innerText from qrModalMessage, then remove leading/trailing whitespace
+        const detailsText = qrModalMessage.innerText.trim(); 
+        
+        // Split the text into lines that fit within the PDF width
+        const lines = doc.splitTextToSize(detailsText, 180); 
+        
+        // Set initial Y position and add text to PDF
+        let currentY = 10;
+        doc.text(lines, 10, currentY);
+
+        // Update currentY to be after the added text, plus some margin
+        currentY += (lines.length * doc.getLineHeight()) / doc.internal.scaleFactor + 10; 
+
+        // Add QR code image to PDF
+        const imgData = qrCanvas.toDataURL('image/png'); // Use the canvas directly
+
+        const imgWidth = 80; 
+        const imgHeight = (qrCanvas.height * imgWidth) / qrCanvas.width; 
+
+        doc.addImage(imgData, 'PNG', 10, currentY, imgWidth, imgHeight);
+
+        doc.save('detalhes_pagamento_pix.pdf');
+
+    } catch (error) {
+        console.error("Erro ao gerar PDF:", error);
+        alert("Erro ao gerar o PDF. Por favor, tente novamente.");
     }
 });
 
