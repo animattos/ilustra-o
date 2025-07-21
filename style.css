@@ -10,6 +10,7 @@ body {
 h1 {
     color: #333;
     margin-bottom: 40px;
+    font-size: 2em; /* Default font size for larger screens */
 }
 
 .header-container {
@@ -24,6 +25,39 @@ h1 {
     height: auto;
     margin-right: 15px;
     vertical-align: middle;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .site-logo {
+        width: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+    }
+
+    .site-logo {
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .site-logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }
 
 #gallery {
@@ -377,7 +411,6 @@ h1 {
     color: #28a745;
     margin-top: 20px;
     padding-top: 15px;
-    border-top: 1px solid #eee;
     width: 100%;
     text-align: center;
 }
@@ -467,8 +500,6 @@ h1 {
 }
 
 #controls > div:not(:last-child) {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
     border-bottom: 1px solid #eee;
 }
 
