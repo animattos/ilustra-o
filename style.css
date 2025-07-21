@@ -552,3 +552,7 @@ h1 {
     right: 15px;
     font-size: 30px;
 }
+.logo {
+    width: 50px;
+    height: auto;
+}
