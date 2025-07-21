@@ -679,10 +679,10 @@ generateQrcodeButton.addEventListener('click', () => {
             qrDetailsHtml += `<li><strong>Quantidade de Ilustrações:</strong> ${quantity}</li>`;
 
             const selectedAddOns = [];
-            if (optionTextLayout.checked) selectedAddOns.push(`Texto e diagramação (R$ ${TEXT_LAYOUT_PRICE_PER_ILLUSTRATION} / ilustração)`);
+            if (optionTextLayout.checked) selectedAddOns.push(`Texto e diagramação (R$ ${TEXT_LAYOUT_PRICE_PER_ILLUSTRATION})`);
             if (optionCoverDesign.checked) selectedAddOns.push(`Ilustração de design de capa (R$ ${COVER_DESIGN_PRICE})`);
             if (optionBookTrailer.checked) selectedAddOns.push(`Criação de book trailer (R$ ${BOOK_TRAILER_PRICE})`);
-            if (optionTranslation.checked) selectedAddOns.push(`Tradução para outras línguas (R$ ${TRANSLATION_PRICE_PER_ILLUSTRATION} / ilustração)`);
+            if (optionTranslation.checked) selectedAddOns.push(`Tradução para outras línguas (R$ ${TRANSLATION_PRICE_PER_ILLUSTRATION})`);
             if (optionAttractiveText.checked) selectedAddOns.push(`Deixar texto mais atraente (R$ ${ATTRACTIVE_TEXT_PRICE})`);
 
             if (selectedAddOns.length > 0) {
