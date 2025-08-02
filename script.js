@@ -701,7 +701,7 @@ generateQrcodeButton.addEventListener('click', () => {
                 <ul>
                     <li><strong>Método:</strong> ${paymentMethodInfo}</li>
                     <li><strong>Nome:</strong> ${nomeRecebedor}</li>
-                    <li><strong>Chave Pix:</strong> ${chavePix} (E-mail)</li>
+                    <li><strong>Chave Pix:</strong> ${chavePix} (CPF)</li>
                     <li><strong>Cidade:</strong> ${cidadeRecebedor}</li>
                     <li><strong>Valor:</strong> R$ ${totalAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</li>
                 </ul>
