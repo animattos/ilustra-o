@@ -198,9 +198,9 @@ const serviceDetails = {
 };
 
 // --- Provided Pix generation script ---
-const chavePix = "estudioanimattos@gmail.com";
+const chavePix = "07882446718";
 const nomeRecebedor = "Alessandro Mattos";
-const cidadeRecebedor = "Sao Paulo"; 
+const cidadeRecebedor = "Rio de Janeiro"; 
 
 function calculateCRC16(str) {
   let crc = 0xFFFF;
